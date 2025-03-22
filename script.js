@@ -1,4 +1,4 @@
-clockspeed = 60;
+clockspeed = 1;
 minutesspeed = 2 / 60; //degree per second
 hoursspeed = -1 / 60; //degree per second
 
@@ -49,3 +49,20 @@ setInterval(() => {
   document.getElementById('hours').style.transform =
     'rotate(' + angleOfHours + 'deg)';
 }, 10);
+syncTime = () => {
+  time = new Date();
+  hours = time.getHours();
+  minutes = time.getMinutes();
+  angleOfMinutes =
+    minutes * 6 +
+    parseFloat(
+      document.getElementById('digits-min').style.getPropertyValue('--offset')
+    );
+  angleOfHours =
+    hours * 30 +
+    parseFloat(
+      document.getElementById('digits-h').style.getPropertyValue('--offset')
+    );
+};
+document.addEventListener('DOMContentLoaded', syncTime);
+setInterval(syncTime, 3600000);
