@@ -1,6 +1,6 @@
 clockspeed = 1;
-minutesspeed = 2 / 60; //degree per second
-hoursspeed = -1 / 60; //degree per second
+minutesspeed = -1; //degree per second
+hoursspeed = 1; //degree per second
 
 setInterval(() => {
   document
@@ -53,6 +53,11 @@ syncTime = () => {
   time = new Date();
   hours = time.getHours();
   minutes = time.getMinutes();
+  setTime(hours, minutes);
+};
+document.addEventListener('DOMContentLoaded', syncTime);
+setInterval(syncTime, 3600000);
+setTime = (hours, minutes) => {
   angleOfMinutes =
     minutes * 6 +
     parseFloat(
@@ -64,5 +69,3 @@ syncTime = () => {
       document.getElementById('digits-h').style.getPropertyValue('--offset')
     );
 };
-document.addEventListener('DOMContentLoaded', syncTime);
-setInterval(syncTime, 3600000);
