@@ -1,0 +1,90 @@
+span {
+  position: absolute;
+  background-color: aqua;
+  rotate: calc(-1 * var(--rot));
+}
+.digits {
+  --circle-size: 500px;
+  --item-size: 30px;
+  position: absolute;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+
+  --angle: 30deg;
+  --offset: -90deg;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+#digits.transition > *,
+#digits.transition span {
+  transition: rotate 0.1s linear;
+}
+
+.digits > div:nth-child(1) {
+  --rot: calc(var(--angle) * 0 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(2) {
+  --rot: calc(var(--angle) * 1 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(3) {
+  --rot: calc(var(--angle) * 2 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(4) {
+  --rot: calc(var(--angle) * 3 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(5) {
+  --rot: calc(var(--angle) * 4 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(6) {
+  --rot: calc(var(--angle) * 5 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(7) {
+  --rot: calc(var(--angle) * 6 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(8) {
+  --rot: calc(var(--angle) * 7 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(9) {
+  --rot: calc(var(--angle) * 8 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(10) {
+  --rot: calc(var(--angle) * 9 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(11) {
+  --rot: calc(var(--angle) * 10 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
+.digits > div:nth-child(12) {
+  --rot: calc(var(--angle) * 11 + var(--offset));
+  rotate: var(--rot);
+  transform: translate(calc(var(--circle-size) / 2));
+}
