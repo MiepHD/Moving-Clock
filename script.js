@@ -1,28 +1,28 @@
-clockspeed = 60; //degree per second
-minutesspeed = 0; //degree per second
-hoursspeed = 0; //degree per second
+clockspeed = 60;
+minutesspeed = 2 / 60; //degree per second
+hoursspeed = -1 / 60; //degree per second
 
 setInterval(() => {
   document
     .getElementById('digits-h')
     .style.setProperty(
       '--offset',
-      parseInt(
+      parseFloat(
         document.getElementById('digits-h').style.getPropertyValue('--offset')
       ) +
-        hoursspeed +
+        (hoursspeed / 100) * clockspeed +
         'deg'
     );
-}, 100);
+}, 10);
 setInterval(() => {
   document
     .getElementById('digits-min')
     .style.setProperty(
       '--offset',
-      parseInt(
+      parseFloat(
         document.getElementById('digits-min').style.getPropertyValue('--offset')
       ) +
-        minutesspeed +
+        (minutesspeed / 100) * clockspeed +
         'deg'
     );
 }, 10);
@@ -33,19 +33,19 @@ setInterval(() => {
     angleOfMinutes = angleOfMinutes - 360;
     minhand.style.transform = 'rotate(' + angleOfMinutes + 'deg)';
   }
-  angleOfMinutes = angleOfMinutes + 0.001 * clockspeed;
+  angleOfMinutes =
+    angleOfMinutes + 0.001 * clockspeed * (1 + minutesspeed * 10);
   minhand.style.transform = 'rotate(' + angleOfMinutes + 'deg)';
 }, 10);
 angleOfHours = 270;
 setInterval(() => {
   if (angleOfHours > 360) {
     angleOfHours = angleOfHours % 360;
-    document.getElementById('hours').style.transition = 'rotate 0s';
     document.getElementById('hours').style.transform =
       'rotate(' + angleOfHours + 'deg)';
-    document.getElementById('hours').style.transition = '';
   }
-  angleOfHours = angleOfHours + (0.001 / 12) * clockspeed;
+  angleOfHours =
+    angleOfHours + (0.001 * clockspeed * (1 + hoursspeed * 120)) / 12;
   document.getElementById('hours').style.transform =
     'rotate(' + angleOfHours + 'deg)';
 }, 10);

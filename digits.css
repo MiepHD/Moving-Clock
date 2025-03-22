@@ -23,10 +23,6 @@ span {
     left: 50%;
   }
 }
-#digits.transition > *,
-#digits.transition span {
-  transition: rotate 0.1s linear;
-}
 
 .digits > div:nth-child(1) {
   --rot: calc(var(--angle) * 0 + var(--offset));
