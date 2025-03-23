@@ -1,6 +1,6 @@
 clockspeed = 1;
-minutesspeed = -1; //degree per second
-hoursspeed = 1; //degree per second
+minutesspeed = Math.random() * 60 - 30; //degree per second
+hoursspeed = Math.random() * 60 - 30; //degree per second
 
 setInterval(() => {
   document
@@ -26,7 +26,7 @@ setInterval(() => {
         'deg'
     );
 }, 10);
-angleOfMinutes = 270;
+angleOfMinutes = Math.random() * 360;
 setInterval(() => {
   const minhand = document.getElementById('minutes');
   if (angleOfMinutes > 360) {
@@ -37,7 +37,7 @@ setInterval(() => {
     angleOfMinutes + 0.001 * clockspeed * (1 + minutesspeed * 10);
   minhand.style.transform = 'rotate(' + angleOfMinutes + 'deg)';
 }, 10);
-angleOfHours = 270;
+angleOfHours = Math.random() * 360;
 setInterval(() => {
   if (angleOfHours > 360) {
     angleOfHours = angleOfHours % 360;
@@ -55,7 +55,17 @@ syncTime = () => {
   minutes = time.getMinutes();
   setTime(hours, minutes);
 };
-document.addEventListener('DOMContentLoaded', syncTime);
+document.addEventListener('DOMContentLoaded', () => {
+  syncTime();
+  document.getElementById('minutesspeed').value = minutesspeed;
+  document.getElementById('minutesspeed').addEventListener('input', (e) => {
+    minutesspeed = e.target.value;
+  });
+  document.getElementById('hoursspeed').value = hoursspeed;
+  document.getElementById('hoursspeed').addEventListener('input', (e) => {
+    hoursspeed = e.target.value;
+  });
+});
 setInterval(syncTime, 3600000);
 setTime = (hours, minutes) => {
   angleOfMinutes =

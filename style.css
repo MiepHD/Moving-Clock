@@ -18,3 +18,31 @@ body > div {
   width: 52ch;
   height: 52ch;
 }
+.slider {
+  -webkit-appearance: none;
+  height: 1ch;
+  border-radius: 0.5ch;
+  background: red;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2ch;
+  height: 2ch;
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 2ch;
+  height: 2ch;
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+}
