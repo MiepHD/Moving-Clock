@@ -1,10 +1,13 @@
 span {
   position: absolute;
-  background-color: aqua;
+  color: red;
+  font-weight: bold;
   rotate: calc(-1 * var(--rot));
   width: 2ch;
   height: 2ch;
   text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 .digits {
   --item-size: 2ch;

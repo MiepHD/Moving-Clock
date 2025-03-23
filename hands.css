@@ -6,20 +6,21 @@
   position: absolute;
 }
 #minutes {
-  z-index: -2;
-  background-color: brown;
-  width: 25.4ch;
+  z-index: -1;
+  background-color: red;
+  width: 24.6ch;
   translate: 25.6ch 25.6ch;
   height: 0.8ch;
   transform-origin: 0.4ch 0.4ch;
   transform: rotate(25deg);
+  border-radius: 0.4ch;
 }
 #hours {
-  z-index: -1;
-  background-color: blue;
-  width: 20.6ch;
+  background-color: red;
+  width: 19.8ch;
   height: 1.2ch;
   translate: 25.4ch 25.4ch;
   transform-origin: 0.6ch 0.6ch;
   transform: rotate(25deg);
+  border-radius: 0.6ch;
 }

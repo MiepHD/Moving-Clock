@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'sevensegment';
+  src: url('Seven Segment.ttf') format('truetype');
+}
+html,
+body {
+  z-index: -1;
+  font-family: 'sevensegment';
+  background-color: black;
+}
+body > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 52ch;
+  height: 52ch;
+}

@@ -5,57 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./digits.css" />
     <link rel="stylesheet" href="./hands.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./script.js"></script>
     <title>Funny clock</title>
   </head>
-  <body style="padding: 50px">
-    <div
-      class="digits transition"
-      id="digits-h"
-      style="
-        --circle-size: 40ch;
-        transform: translate(5ch, 5ch);
-        --offset: 270deg;
-      "
-    >
-      <div><span data-digit="0">0</span></div>
-      <div><span data-digit="1">1</span></div>
-      <div><span data-digit="2">2</span></div>
-      <div><span data-digit="3">3</span></div>
-      <div><span data-digit="4">4</span></div>
-      <div><span data-digit="5">5</span></div>
-      <div><span data-digit="6">6</span></div>
-      <div><span data-digit="7">7</span></div>
-      <div><span data-digit="8">8</span></div>
-      <div><span data-digit="9">9</span></div>
-      <div><span data-digit="10">10</span></div>
-      <div><span data-digit="11">11</span></div>
-    </div>
-    <div
-      class="digits transition"
-      id="digits-min"
-      style="
-        --circle-size: 50ch;
+  <body>
+    <div>
+      <div
+        class="digits transition"
+        id="digits-h"
+        style="
+          --circle-size: 40ch;
+          transform: translate(5ch, 5ch);
+          --offset: 270deg;
+        "
+      >
+        <div><span data-digit="0">0</span></div>
+        <div><span data-digit="1">1</span></div>
+        <div><span data-digit="2">2</span></div>
+        <div><span data-digit="3">3</span></div>
+        <div><span data-digit="4">4</span></div>
+        <div><span data-digit="5">5</span></div>
+        <div><span data-digit="6">6</span></div>
+        <div><span data-digit="7">7</span></div>
+        <div><span data-digit="8">8</span></div>
+        <div><span data-digit="9">9</span></div>
+        <div><span data-digit="10">10</span></div>
+        <div><span data-digit="11">11</span></div>
+      </div>
+      <div
+        class="digits transition"
+        id="digits-min"
+        style="
+          --circle-size: 50ch;
 
-        --offset: 270deg;
-      "
-    >
-      <div><span data-digit="0">60</span></div>
-      <div><span data-digit="1">5</span></div>
-      <div><span data-digit="2">10</span></div>
-      <div><span data-digit="3">15</span></div>
-      <div><span data-digit="4">20</span></div>
-      <div><span data-digit="5">25</span></div>
-      <div><span data-digit="6">30</span></div>
-      <div><span data-digit="7">35</span></div>
-      <div><span data-digit="8">40</span></div>
-      <div><span data-digit="9">45</span></div>
-      <div><span data-digit="10">50</span></div>
-      <div><span data-digit="11">55</span></div>
-    </div>
-    <div id="hands">
-      <div class="transition" id="hours"></div>
-      <div class="transition" id="minutes"></div>
+          --offset: 270deg;
+        "
+      >
+        <div><span data-digit="0">60</span></div>
+        <div><span data-digit="1">5</span></div>
+        <div><span data-digit="2">10</span></div>
+        <div><span data-digit="3">15</span></div>
+        <div><span data-digit="4">20</span></div>
+        <div><span data-digit="5">25</span></div>
+        <div><span data-digit="6">30</span></div>
+        <div><span data-digit="7">35</span></div>
+        <div><span data-digit="8">40</span></div>
+        <div><span data-digit="9">45</span></div>
+        <div><span data-digit="10">50</span></div>
+        <div><span data-digit="11">55</span></div>
+      </div>
+      <div id="hands">
+        <div class="transition" id="hours"></div>
+        <div class="transition" id="minutes"></div>
+      </div>
     </div>
   </body>
 </html>
