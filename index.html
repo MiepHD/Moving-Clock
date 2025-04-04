@@ -7,9 +7,21 @@
     <link rel="stylesheet" href="./hands.css" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js"></script>
+    <script src="./alarm.js"></script>
     <title>Funny clock</title>
   </head>
   <body>
+    <div
+      id="middle"
+      style="
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: 0;
+        width: 0;
+        height: 0;
+      "
+    ></div>
     <div>
       <div
         class="digits transition"
@@ -32,6 +44,7 @@
         <div><span data-digit="9" class="d9 d21">9</span></div>
         <div><span data-digit="10" class="d10 d22">10</span></div>
         <div><span data-digit="11" class="d11 d23">11</span></div>
+        <div id="target-h"></div>
       </div>
       <div
         class="digits transition"
@@ -54,10 +67,11 @@
         <div><span data-digit="9">45</span></div>
         <div><span data-digit="10">50</span></div>
         <div><span data-digit="11">55</span></div>
+        <div id="target-min"></div>
       </div>
       <div id="hands">
-        <div class="transition" id="hours"></div>
-        <div class="transition" id="minutes"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
       </div>
     </div>
     <label for="hoursspeed" style="color: red">Hours:</label

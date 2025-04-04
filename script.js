@@ -9,20 +9,22 @@ rotate = () => {
     .getElementById('digits-min')
     .style.setProperty(
       '--offset',
-      parseFloat(
+      ((parseFloat(
         document.getElementById('digits-min').style.getPropertyValue('--offset')
       ) +
-        minutesspeed / 100 +
+        minutesspeed / 100) %
+        360) +
         'deg'
     );
   document
     .getElementById('digits-h')
     .style.setProperty(
       '--offset',
-      parseFloat(
+      ((parseFloat(
         document.getElementById('digits-h').style.getPropertyValue('--offset')
       ) +
-        hoursspeed / 100 +
+        hoursspeed / 100) %
+        360) +
         'deg'
     );
 };
@@ -44,7 +46,7 @@ let lasthour;
 updateHours = (hour) => {
   if (!lasthour || hour != lasthour) {
     lasthour = hour;
-    hour = hour + (6 % 24);
+    hour = (hour + 6) % 24;
     document.querySelector(`span.d${hour}`).textContent = hour;
   }
 };
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 setInterval(syncTime, 10);
 
-setTime = (hours, minutes, seconds) => {
+setTime = (hours, minutes, seconds, milliseconds) => {
   angleOfMinutes =
     (minutes * 60 + seconds + milliseconds / 1000) / 10 +
     +parseFloat(
