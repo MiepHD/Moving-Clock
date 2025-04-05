@@ -1,0 +1,91 @@
+#options {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  width: max-content;
+}
+
+img {
+  height: 3ch;
+  width: 3ch;
+  cursor: url('assets/cursor/click.svg') 8 8, pointer;
+}
+
+/*Slider*/
+
+.slider {
+  position: relative;
+  -webkit-appearance: none;
+  height: 1ch;
+  border-radius: 0.5ch;
+  background: red;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: url('assets/cursor/click.svg') 8 8, pointer;
+}
+.slider::before {
+  position: absolute;
+  display: block;
+  left: calc(50% - 0.125ch);
+  top: -1ch;
+  width: 0.25ch;
+  border-radius: 0.125ch;
+  height: 3ch;
+  content: '';
+  background-color: red;
+  font-weight: bold;
+  font-size: large;
+  pointer-events: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2ch;
+  height: 2ch;
+  border-radius: 50%;
+  background: red;
+  cursor: url('assets/cursor/move-horizontal.svg') 16 16, ew-resize;
+}
+
+.slider::-moz-range-thumb {
+  width: 2ch;
+  height: 2ch;
+  border-radius: 50%;
+  background: red;
+}
+
+/*Checkbox*/
+input[type='checkbox'] {
+  position: relative;
+  -webkit-appearance: none;
+  background: red;
+  border-radius: 0.5ch;
+  height: 2ch;
+  width: 2ch;
+  margin: 0 auto;
+  cursor: url('assets/cursor/click.svg') 8 8, pointer;
+}
+
+input:checked:before {
+  left: 0.25ch;
+  top: -0.25ch;
+  color: darkred;
+  content: '✓';
+  font-weight: bold;
+  display: block;
+  position: absolute;
+}
+
+/*Hover*/
+
+label {
+  user-select: none;
+  cursor: url('assets/cursor/default.svg'), default;
+}
+#options > * {
+  visibility: hidden;
+}
+#options:active > *,
+#options:hover > * {
+  visibility: visible;
+}

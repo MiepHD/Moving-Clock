@@ -16,6 +16,7 @@
   border-radius: 0.4ch;
 }
 #hours {
+  z-index: -1;
   background-color: red;
   width: 19.8ch;
   height: 1.2ch;
@@ -26,8 +27,8 @@
 }
 
 #target-min {
-  pointer-events: all;
   z-index: -1;
+  pointer-events: all;
   background-color: darkred;
   width: 24.6ch;
   height: 0.8ch;
@@ -39,6 +40,7 @@
   cursor: url('assets/cursor/rotate.svg') 16 16, grab;
 }
 #target-h {
+  z-index: -1;
   pointer-events: all;
   background-color: darkred;
   width: 19.8ch;
