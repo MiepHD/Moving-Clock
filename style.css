@@ -3,6 +3,7 @@
   src: url('Seven Segment.ttf') format('truetype');
 }
 body {
+  pointer-events: none;
   padding: 1ch;
   font-family: 'sevensegment';
 }

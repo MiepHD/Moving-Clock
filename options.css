@@ -1,4 +1,5 @@
 #options {
+  pointer-events: all;
   display: grid;
   grid-template-columns: max-content max-content;
   width: max-content;
