@@ -37,25 +37,28 @@ class Rotator {
     const y = e.clientY - middle.y;
     let angle = Math.atan(y / x) * (180 / Math.PI);
     if (x < 0) angle = angle + 180;
-    this.elem.style.setProperty(
-      '--rot',
+    angle =
       angle -
-        parseFloat(this.elem.parentElement.style.getPropertyValue('--offset')) +
-        'deg'
-    );
+      parseFloat(this.elem.parentElement.style.getPropertyValue('--offset'));
+    this.elem.style.setProperty('--rot', angle + 'deg');
     this.updateOtherHand(angle);
   }
 }
 class Minutes extends Rotator {
   updateOtherHand(angleMinutes) {
+    angleMinutes %= 360;
+    if (angleMinutes < 0) angleMinutes += 360;
     const hourhand = document.getElementById('target-h');
     let angleHours = parseFloat(hourhand.style.getPropertyValue('--rot'));
-    if (!angleHours) angleHours = 0;
-    angleHours = angleHours - (angleHours % 30) - 30 + (angleMinutes + 90) / 12;
-    if (this.anglebefore > 180 && angleMinutes < 0) {
+    if (!angleHours) angleHours = 30;
+    angleHours = angleHours - (angleHours % 30) - 30 + angleMinutes / 12;
+    if (this.anglebefore > 270 && angleMinutes < 90) {
       angleHours += 30;
     }
-    if (angleMinutes > 180 && this.anglebefore < 0) angleHours -= 30;
+    if (angleMinutes > 270 && this.anglebefore < 90) angleHours -= 30;
+    console.log(angleHours);
+    angleHours %= 360;
+    if (angleHours > 0) angleHours -= 360;
     hourhand.style.setProperty('--rot', angleHours + 'deg');
     this.anglebefore = angleMinutes;
   }
