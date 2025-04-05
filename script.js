@@ -1,8 +1,6 @@
 clockspeed = 1;
 minutesspeed = Math.random() * 60 - 30; //degree per second
 hoursspeed = Math.random() * 60 - 30; //degree per second
-minutesspeed = 0;
-hoursspeed = 0;
 //Face
 rotate = () => {
   document
@@ -30,8 +28,7 @@ rotate = () => {
 };
 
 //Hands
-angleOfMinutes = Math.random() * 360;
-setMinutes = () => {
+setMinutes = (angleOfMinutes) => {
   if (angleOfMinutes > 360) angleOfMinutes = angleOfMinutes % 360;
   document.getElementById('minutes').style.transform =
     'rotate(' + angleOfMinutes + 'deg)';
@@ -60,6 +57,7 @@ syncTime = () => {
   milliseconds = time.getMilliseconds();
   updateHours(hours);
   setTime(hours, minutes, seconds, milliseconds);
+  alarm(hours);
 };
 document.addEventListener('DOMContentLoaded', () => {
   syncTime();
@@ -99,4 +97,45 @@ setTime = (hours, minutes, seconds, milliseconds) => {
       document.getElementById('digits-h').style.getPropertyValue('--offset')
     );
   setHours(angleOfHours);
+};
+previousminangle = null;
+previoushangle = null;
+alarm = (hours) => {
+  let currentminangle =
+    angleOfMinutes -
+    parseFloat(
+      document.getElementById('digits-min').style.getPropertyValue('--offset')
+    );
+  if (currentminangle < 0) currentminangle = 360 + currentminangle;
+  let currenthangle =
+    angleOfHours -
+    parseFloat(
+      document.getElementById('digits-h').style.getPropertyValue('--offset')
+    );
+  if (currenthangle < 0) currenthangle = 360 + currenthangle;
+  const alarmminangle =
+    360 +
+    parseFloat(
+      document.getElementById('target-min').style.getPropertyValue('--rot')
+    );
+  const alarmhangle =
+    360 +
+    parseFloat(
+      document.getElementById('target-h').style.getPropertyValue('--rot')
+    );
+  if (
+    previoushangle < alarmhangle + 15 &&
+    currenthangle > alarmhangle - 15 &&
+    previousminangle < alarmminangle &&
+    currentminangle >= alarmminangle
+  ) {
+    if (
+      (hours < 12 && document.getElementById('alarmam').checked) ||
+      (hours >= 12 && document.getElementById('alarmpm').checked)
+    ) {
+      new Audio('assets/alarm.mp3').play();
+    }
+  }
+  previoushangle = currenthangle;
+  previousminangle = currentminangle;
 };
