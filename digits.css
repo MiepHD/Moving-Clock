@@ -8,6 +8,9 @@ span {
   text-align: center;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+  font-size: 3.5ch;
+  left: -1ch;
+  top: -1ch;
 }
 .digits {
   --item-size: 2ch;
@@ -15,7 +18,6 @@ span {
   width: var(--circle-size);
   height: var(--circle-size);
   padding: 0;
-  border-radius: 50%;
   list-style: none;
 
   --angle: 30deg;
@@ -26,7 +28,6 @@ span {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform-origin: calc(var(--item-size) / 2) calc(var(--item-size) / 2);
   }
 }
 

@@ -9,7 +9,7 @@
   z-index: -1;
   background-color: red;
   width: 24.6ch;
-  translate: 25.6ch 25.6ch;
+  translate: 24.6ch 24.6ch;
   height: 0.8ch;
   transform-origin: 0.4ch 0.4ch;
   transform: rotate(-90deg);
@@ -19,7 +19,7 @@
   background-color: red;
   width: 19.8ch;
   height: 1.2ch;
-  translate: 25.4ch 25.4ch;
+  translate: 24.4ch 24.4ch;
   transform-origin: 0.6ch 0.6ch;
   transform: rotate(-90deg);
   border-radius: 0.6ch;
@@ -31,8 +31,8 @@
   background-color: darkred;
   width: 24.6ch;
   height: 0.8ch;
-  top: calc(50% + 0.6ch);
-  left: calc(50% + 0.6ch);
+  top: calc(50% - 0.4ch);
+  left: calc(50% - 0.4ch);
   transform-origin: 0.4ch 0.4ch;
   transform: rotate(calc(var(--offset) + var(--rot)));
   border-radius: 0.4ch;
@@ -43,8 +43,8 @@
   background-color: darkred;
   width: 19.8ch;
   height: 1.2ch;
-  top: calc(50% + 0.4ch);
-  left: calc(50% + 0.4ch);
+  top: calc(50% - 0.6ch);
+  left: calc(50% - 0.6ch);
   transform-origin: 0.6ch 0.6ch;
   transform: rotate(calc(var(--offset) + var(--rot)));
   border-radius: 0.6ch;

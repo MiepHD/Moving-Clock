@@ -9,6 +9,7 @@ body {
   background-color: black;
 }
 body > div {
+  --rot: 0deg;
   position: absolute;
   pointer-events: none;
   user-select: none;
@@ -19,6 +20,16 @@ body > div {
   margin: auto;
   width: 52ch;
   height: 52ch;
+}
+label,
+input {
+  visibility: hidden;
+}
+body:active label,
+body:active input,
+body:hover label,
+body:hover input {
+  visibility: visible;
 }
 .slider {
   cursor: pointer;
@@ -62,5 +73,13 @@ body > div {
   height: 2ch;
   border-radius: 50%;
   background: red;
+  cursor: pointer;
+}
+img {
+  position: absolute;
+  height: 3ch;
+  width: 3ch;
+  bottom: 1ch;
+  right: 1ch;
   cursor: pointer;
 }
