@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 0.96 0.96"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="move-horizontal.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.412703"
+     inkscape:cx="47.841425"
+     inkscape:cy="27.644633"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Edit / Move_Horizontal" />
+  <g
+     id="Edit / Move_Horizontal"
+     transform="matrix(0.048,0,0,0.048,-0.096,-0.096)"
+     style="fill:#ff0000;fill-opacity:1">
+    <path
+       id="Vector"
+       d="M 3,12 H 21 M 3,12 6,15 M 3,12 6,9 m 15,3 -3,-3 m 3,3 -3,3"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       style="fill-opacity:1;stroke:#ff0000;stroke-opacity:1" />
+  </g>
+</svg>

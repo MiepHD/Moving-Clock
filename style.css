@@ -7,6 +7,7 @@ body {
   z-index: -1;
   font-family: 'sevensegment';
   background-color: black;
+  cursor: url('assets/cursor/default.svg'), default;
 }
 body > div {
   --rot: 0deg;
@@ -21,14 +22,21 @@ body > div {
   width: 52ch;
   height: 52ch;
 }
+label {
+  user-select: none;
+  cursor: url('assets/cursor/default.svg'), default;
+}
 label,
-input {
+input,
+img {
   visibility: hidden;
 }
 body:active label,
 body:active input,
 body:hover label,
-body:hover input {
+body:hover input,
+body:active img,
+body:hover img {
   visibility: visible;
 }
 .slider {
@@ -42,6 +50,7 @@ body:hover input {
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
+  cursor: url('assets/cursor/click.svg') 8 8, pointer;
 }
 .slider::before {
   position: absolute;
@@ -65,7 +74,7 @@ body:hover input {
   height: 2ch;
   border-radius: 50%;
   background: red;
-  cursor: pointer;
+  cursor: url('assets/cursor/move-horizontal.svg') 16 16, ew-resize;
 }
 
 .slider::-moz-range-thumb {
@@ -73,13 +82,12 @@ body:hover input {
   height: 2ch;
   border-radius: 50%;
   background: red;
-  cursor: pointer;
 }
 img {
   position: absolute;
   height: 3ch;
   width: 3ch;
-  bottom: 1ch;
-  right: 1ch;
-  cursor: pointer;
+  top: 1ch;
+  right: 20px;
+  cursor: url('assets/cursor/click.svg') 8 8, pointer;
 }
