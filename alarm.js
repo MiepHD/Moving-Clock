@@ -56,7 +56,6 @@ class Minutes extends Rotator {
       angleHours += 30;
     }
     if (angleMinutes > 270 && this.anglebefore < 90) angleHours -= 30;
-    console.log(angleHours);
     angleHours %= 360;
     if (angleHours > 0) angleHours -= 360;
     hourhand.style.setProperty('--rot', angleHours + 'deg');
