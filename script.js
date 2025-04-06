@@ -60,7 +60,7 @@ syncTime = () => {
   alarm(hours);
 };
 document.addEventListener('DOMContentLoaded', () => {
-  syncTime();
+  setInterval(syncTime, 10);
   document.getElementById('minutesspeed').value = minutesspeed;
   document.getElementById('minutesspeed').addEventListener('input', (e) => {
     minutesspeed = e.target.value;
@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateHours(hours - 5);
   updateHours(hours - 6);
 });
-
-setInterval(syncTime, 10);
 
 setTime = (hours, minutes, seconds, milliseconds) => {
   angleOfMinutes =
