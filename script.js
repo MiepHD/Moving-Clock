@@ -111,16 +111,18 @@ alarm = (hours) => {
       document.getElementById('digits-h').style.getPropertyValue('--offset')
     );
   if (currenthangle < 0) currenthangle = 360 + currenthangle;
-  const alarmminangle =
+  let alarmminangle =
     360 +
     parseFloat(
       document.getElementById('target-min').style.getPropertyValue('--rot')
     );
-  const alarmhangle =
+  alarmminangle %= 360;
+  let alarmhangle =
     360 +
     parseFloat(
       document.getElementById('target-h').style.getPropertyValue('--rot')
     );
+  alarmhangle %= 360;
   if (
     previoushangle < alarmhangle + 15 &&
     currenthangle > alarmhangle - 15 &&
@@ -131,7 +133,23 @@ alarm = (hours) => {
       (hours < 12 && document.getElementById('alarmam').checked) ||
       (hours >= 12 && document.getElementById('alarmpm').checked)
     ) {
-      new Audio('assets/alarm.mp3').play();
+      const alarm = setInterval(() => {
+        new Audio('assets/alarm.mp3').play();
+      }, 4000);
+      document.addEventListener(
+        'touchstart',
+        () => {
+          clearInterval(alarm);
+        },
+        { once: true }
+      );
+      document.addEventListener(
+        'click',
+        () => {
+          clearInterval(alarm);
+        },
+        { once: true }
+      );
     }
   }
   previoushangle = currenthangle;
