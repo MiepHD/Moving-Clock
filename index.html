@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="./hands.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./options.css" />
-    <script src="./script.js"></script>
-    <script src="./alarm.js"></script>
+    <script src="./scripts/alarm/Rotator.js"></script>
+    <script src="./scripts/alarm/Minutes.js"></script>
+    <script src="./scripts/alarm/Hours.js"></script>
+    <script src="./scripts/alarm/Alarm.js"></script>
+    <script src="./scripts/face/FaceRotator.js"></script>
+    <script src="./scripts/face/Face.js"></script>
+    <script src="./scripts/Hands.js"></script>
+    <script src="./scripts/Main.js"></script>
     <title>Moving Clock</title>
   </head>
   <body>
+    <span>Error</span>
     <div id="clock">
       <div
         id="middle"
@@ -76,23 +83,23 @@
       </div>
     </div>
     <div id="options">
-      <label for="hoursspeed" style="color: red">Hours:</label
+      <label for="speed-slider-h" style="color: red">Hours:</label
       ><input
         type="range"
         min="-30"
         max="30"
         value="0"
         class="slider"
-        id="hoursspeed"
+        id="speed-slider-h"
       />
-      <label for="minutesspeed" style="color: red">Minutes:</label
+      <label for="speed-slider-min" style="color: red">Minutes:</label
       ><input
         type="range"
         min="-30"
         max="30"
         value="0"
         class="slider"
-        id="minutesspeed"
+        id="speed-slider-min"
       />
       <label for="alarmpm" style="color: red">Alarm PM:</label
       ><input type="checkbox" id="alarmpm" />

@@ -24,3 +24,9 @@ body > #clock {
   width: 52ch;
   height: 52ch;
 }
+body > span {
+  visibility: hidden;
+  top: unset;
+  bottom: 1ch;
+  left: 1ch;
+}
