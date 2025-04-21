@@ -83,7 +83,8 @@
       </div>
     </div>
     <div id="options">
-      <label for="speed-slider-h" style="color: red">Hours:</label
+      <input type="checkbox" id="h-moving" checked /><label for="speed-slider-h"
+        >Hours</label
       ><input
         type="range"
         min="-30"
@@ -92,7 +93,9 @@
         class="slider"
         id="speed-slider-h"
       />
-      <label for="speed-slider-min" style="color: red">Minutes:</label
+      <input type="checkbox" id="min-moving" checked /><label
+        for="speed-slider-min"
+        >Minutes</label
       ><input
         type="range"
         min="-30"
@@ -101,14 +104,17 @@
         class="slider"
         id="speed-slider-min"
       />
-      <label for="alarmpm" style="color: red">Alarm PM:</label
-      ><input type="checkbox" id="alarmpm" />
-      <label for="alarmam" style="color: red">Alarm AM:</label
-      ><input type="checkbox" id="alarmam" />
+      <input type="checkbox" id="alarmam" checked /><label for="alarmam"
+        >Alarm AM</label
+      >
+      <input type="checkbox" id="alarmpm" checked /><label for="alarmpm"
+        >Alarm PM</label
+      >
       <img
         src="assets/leave-fullscreen.svg"
         onclick="document.webkitIsFullScreen ? document.exitFullscreen() : document.body.requestFullscreen()"
       />
+      <input type="checkbox" id="eye" />
     </div>
   </body>
 </html>
