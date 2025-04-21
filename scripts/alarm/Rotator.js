@@ -4,13 +4,21 @@
 
 class Rotator {
   elem;
+  /*
+   * In degree from 0 to 360
+   */
   anglebefore;
+  /*
+   * In degree from 0 to 360
+   */
   angle;
   face;
+  otherhand;
   constructor(face, element) {
     this.anglebefore = 0;
     this.elem = element;
     this.face = face;
+    this.angle = 0;
     this.elem.addEventListener('mousedown', this.start.bind(this));
     this.elem.addEventListener('touchstart', this.start.bind(this));
   }
@@ -42,12 +50,22 @@ class Rotator {
       angle -
       parseFloat(this.elem.parentElement.style.getPropertyValue('--offset'));
     if (angle < 0) angle = 360 + angle;
-    this.angle = angle;
-    this.elem.style.setProperty('--rot', this.angle + 'deg');
+    this.setAngle(angle % 360);
     this.updateOtherHand(this.angle);
   }
 
   getAngle() {
     return this.angle;
+  }
+
+  setAngle(angle) {
+    if (angle && angle >= 0 && angle <= 360) {
+      this.elem.style.setProperty('--rot', this.angle + 'deg');
+      this.angle = angle;
+    }
+  }
+
+  addOtherHand(hand) {
+    this.otherhand = hand;
   }
 }
