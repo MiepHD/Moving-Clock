@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./styles/hands.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/options/checkboxes.css" />
-    <link rel="stylesheet" href="./styles/options/checkmark.css" />
     <link rel="stylesheet" href="./styles/options/menu.css" />
     <link rel="stylesheet" href="./styles/options/slider.css" />
     <link rel="stylesheet" href="./styles/options/symbols.css" />
@@ -212,7 +211,7 @@
       <input
         type="checkbox"
         id="h-moving"
-        class="checkmark"
+        class="checkmark symbol"
         aria-label="Hours"
         checked
       /><label for="speed-slider-h">Hours</label
@@ -227,7 +226,7 @@
       <input
         type="checkbox"
         id="min-moving"
-        class="checkmark"
+        class="checkmark symbol"
         aria-label="Minutes"
         checked
       /><label for="speed-slider-min">Minutes</label
@@ -239,14 +238,18 @@
         class="slider"
         id="speed-slider-min"
       />
-      <input type="checkbox" id="alarmam" class="checkmark" checked /><label
-        for="alarmam"
-        >Alarm AM</label
-      >
-      <input type="checkbox" id="alarmpm" class="checkmark" checked /><label
-        for="alarmpm"
-        >Alarm PM</label
-      >
+      <input
+        type="checkbox"
+        id="alarmam"
+        class="checkmark symbol"
+        checked
+      /><label for="alarmam">Alarm AM</label>
+      <input
+        type="checkbox"
+        id="alarmpm"
+        class="checkmark symbol"
+        checked
+      /><label for="alarmpm">Alarm PM</label>
     </div>
   </body>
 </html>

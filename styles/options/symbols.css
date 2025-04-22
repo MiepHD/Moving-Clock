@@ -1,19 +1,19 @@
 /* Symbols */
 
 .symbol:not(:focus) {
-  outline: none !important;
+  outline: none;
 }
 .symbol:before {
-  top: 0 !important;
-  left: 0 !important;
-  content: '' !important;
+  top: 0;
+  left: 0;
+  content: '';
   background-size: calc(2ch + 4px) calc(2ch + 4px);
   position: absolute;
 }
 .symbol,
 .symbol:before {
-  width: calc(2ch + 4px) !important;
-  height: calc(2ch + 4px) !important;
+  width: calc(2ch + 4px);
+  height: calc(2ch + 4px);
   display: block;
 }
 
@@ -32,10 +32,21 @@
 #options:has(#eye:checked) > * {
   visibility: visible;
 }
+
+/* Eye and Checkmark */
+
 #eye,
-#eye:not(:checked):before {
+#eye:not(:checked):before,
+.checkmark,
+.checkmark:checked::before {
   visibility: visible;
   grid-column: 1 / span 1;
+}
+
+/* Checkmark */
+
+.checkmark:checked:before {
+  background-image: url('../../assets/icons/check.svg');
 }
 
 /* Fullscreen */
