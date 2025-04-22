@@ -23,7 +23,7 @@ class Face {
   updateHours(hour) {
     if (!this.lasthour || hour != this.lasthour) {
       this.lasthour = hour;
-      document.querySelector(`span.d${hour}`).textContent = (hour + 6) % 24;
+      document.querySelector(`span.d${hour + 6}`).textContent = (hour + 6) % 24;
     }
   }
 
