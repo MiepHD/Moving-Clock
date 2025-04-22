@@ -1,4 +1,8 @@
-span {
+legend {
+  color: rgba(0, 0, 0, 0);
+}
+fieldset label {
+  pointer-events: all;
   position: absolute;
   color: red;
   font-weight: bold;
@@ -11,8 +15,14 @@ span {
   font-size: 3.5ch;
   left: -1ch;
   top: -1ch;
+  cursor: url('../assets/cursor/click.svg') 8 8, pointer;
+}
+fieldset:has(input:focus) label {
+  outline: 2px solid red;
+  border-radius: 0.5ch;
 }
 .digits {
+  border: none;
   --item-size: 2ch;
   position: absolute;
   width: var(--circle-size);
@@ -28,65 +38,76 @@ span {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 0;
+    height: 0;
   }
 }
 
-.digits > div:nth-child(1) {
+#digits-h {
+  --circle-size: 40ch;
+  transform: translate(5ch, 5ch);
+}
+
+#digits-min {
+  --circle-size: 50ch;
+}
+
+.digits > div:nth-child(2) {
   --rot: calc(var(--angle) * 0 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(2) {
+.digits > div:nth-child(3) {
   --rot: calc(var(--angle) * 1 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(3) {
+.digits > div:nth-child(4) {
   --rot: calc(var(--angle) * 2 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(4) {
+.digits > div:nth-child(5) {
   --rot: calc(var(--angle) * 3 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(5) {
+.digits > div:nth-child(6) {
   --rot: calc(var(--angle) * 4 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(6) {
+.digits > div:nth-child(7) {
   --rot: calc(var(--angle) * 5 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(7) {
+.digits > div:nth-child(8) {
   --rot: calc(var(--angle) * 6 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(8) {
+.digits > div:nth-child(9) {
   --rot: calc(var(--angle) * 7 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(9) {
+.digits > div:nth-child(10) {
   --rot: calc(var(--angle) * 8 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(10) {
+.digits > div:nth-child(11) {
   --rot: calc(var(--angle) * 9 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(11) {
+.digits > div:nth-child(12) {
   --rot: calc(var(--angle) * 10 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));
 }
-.digits > div:nth-child(12) {
+.digits > div:nth-child(13) {
   --rot: calc(var(--angle) * 11 + var(--offset));
   rotate: var(--rot);
   transform: translate(calc(var(--circle-size) / 2));

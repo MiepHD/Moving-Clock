@@ -8,15 +8,10 @@ class Main {
   constructor() {
     document.addEventListener('DOMContentLoaded', () => {
       this.hands = new Hands();
-      this.face = new Face();
-      this.alarm = new Alarm(this.hands, this.face);
       this.lasttime = new Date();
+      this.face = new Face(this.lasttime.getHours());
+      this.alarm = new Alarm(this.hands, this.face);
 
-      //Change hours to 24-hour format
-      const hours = this.lasttime.getHours();
-      for (let i = 0; i <= 6; i++) {
-        this.face.updateHours(hours - i);
-      }
       this.syncTime();
     });
   }

@@ -1,0 +1,16 @@
+#options {
+  pointer-events: all;
+  display: grid;
+  column-gap: 0.25ch;
+  row-gap: 1ch;
+  grid-template-columns: max-content max-content max-content;
+  width: max-content;
+}
+
+#options > label,
+body > span {
+  color: red;
+  user-select: none;
+  cursor: url('../../assets/cursor/default.svg'), default;
+  grid-column: 2 / span 1;
+}

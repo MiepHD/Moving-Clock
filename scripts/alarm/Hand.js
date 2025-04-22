@@ -68,7 +68,7 @@ class Hand {
 
   setAngle(angle) {
     if (angle && angle >= 0 && angle <= 360) {
-      this.elem.style.setProperty('--rot', this.angle + 'deg');
+      this.elem.style.setProperty('--rot', angle + 'deg');
       this.angle = angle;
     }
   }

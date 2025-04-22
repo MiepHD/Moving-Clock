@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'sevensegment';
-  src: url('Seven Segment.ttf') format('truetype');
+  src: url('../assets/Seven\ Segment.ttf') format('truetype');
 }
 body {
   pointer-events: none;
@@ -9,7 +9,7 @@ body {
 }
 html {
   background-color: black;
-  cursor: url('assets/cursor/default.svg'), default;
+  cursor: url('../assets/cursor/default.svg'), default;
 }
 body > #clock {
   --rot: 0deg;
@@ -25,7 +25,16 @@ body > #clock {
   height: 52ch;
 }
 body > span {
+  position: absolute;
   top: unset;
   bottom: 3ch;
   left: 1ch;
+}
+#middle {
+  position: absolute;
+  left: calc(50% - 1ch);
+  top: calc(50% - 1ch);
+  margin: 0;
+  width: 0;
+  height: 0;
 }

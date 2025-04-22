@@ -10,12 +10,16 @@ class Face {
   //If speed should adopt to framerate (If framerate's lower than 50FPS the clock will get slower to move smoothly)
   dynamicspeed;
 
-  constructor() {
+  constructor(hours) {
     this.minutes = new Rotator('min');
     this.hours = new Rotator('h');
     this.lasttime = new Date();
     this.rotating = true;
     this.dynamicspeed = true;
+
+    for (let i = 0; i <= 12; i++) {
+      this.updateHours(hours - i);
+    }
   }
 
   rotate() {
@@ -36,7 +40,8 @@ class Face {
   updateHours(hour) {
     const lasthour = this.lasttime.getHours();
     if (!lasthour || hour != lasthour) {
-      document.querySelector(`span.d${hour + 6}`).textContent = (hour + 6) % 24;
+      const hourToUpdate = (hour + 7) % 24;
+      document.querySelector(`.d${hourToUpdate}`).textContent = hourToUpdate;
     }
   }
 

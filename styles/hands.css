@@ -37,7 +37,7 @@
   transform-origin: 0.4ch 0.4ch;
   transform: rotate(calc(var(--offset) + var(--rot)));
   border-radius: 0.4ch;
-  cursor: url('assets/cursor/rotate.svg') 16 16, grab;
+  cursor: url('../assets/cursor/rotate.svg') 16 16, grab;
 }
 #target-h {
   z-index: -1;
@@ -50,5 +50,5 @@
   transform-origin: 0.6ch 0.6ch;
   transform: rotate(calc(var(--offset) + var(--rot)));
   border-radius: 0.6ch;
-  cursor: url('assets/cursor/rotate.svg') 16 16, grab;
+  cursor: url('../assets/cursor/rotate.svg') 16 16, grab;
 }

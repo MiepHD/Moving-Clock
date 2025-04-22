@@ -1,0 +1,7 @@
+/*Checkbox*/
+#options input[type='checkbox'] {
+  position: relative;
+  outline: 2px solid red;
+  border-radius: 0.5ch;
+  cursor: url('../../assets/cursor/click.svg') 8 8, pointer;
+}

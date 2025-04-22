@@ -4,6 +4,9 @@ class Minutes extends Hand {
   constructor(face, element) {
     super(face, element);
     this.anglebefore = 0;
+    face.minutes.elem.addEventListener('input', () => {
+      this.setAngle(document.forms['clock']['minute'].value);
+    });
   }
 
   updateOtherHand(angleMinutes) {
