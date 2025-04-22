@@ -11,6 +11,6 @@
 body > span {
   color: red;
   user-select: none;
-  cursor: url('../../assets/cursor/default.svg'), default;
+  cursor: url('../../assets/icons/cursor/default.svg'), default;
   grid-column: 2 / span 1;
 }

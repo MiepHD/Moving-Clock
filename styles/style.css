@@ -9,7 +9,7 @@ body {
 }
 html {
   background-color: black;
-  cursor: url('../assets/cursor/default.svg'), default;
+  cursor: url('../assets/icons/cursor/default.svg'), default;
 }
 body > #clock {
   --rot: 0deg;

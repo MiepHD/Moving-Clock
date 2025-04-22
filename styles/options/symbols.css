@@ -20,11 +20,11 @@
 /* Eye */
 
 #eye:checked:before {
-  background-image: url('../../assets/eye-open.svg');
+  background-image: url('../../assets/icons/eye/open.svg');
 }
 
 #eye:not(:checked):before {
-  background-image: url('../../assets/eye-closed.svg');
+  background-image: url('../../assets/icons/eye/closed.svg');
 }
 #options > * {
   visibility: hidden;
@@ -44,9 +44,9 @@
   grid-column: unset;
 }
 #fullscreen:checked:before {
-  background-image: url('../../assets/leave-fullscreen.svg');
+  background-image: url('../../assets/icons/fullscreen/leave.svg');
 }
 
 #fullscreen:not(:checked):before {
-  background-image: url('../../assets/enter-fullscreen.svg');
+  background-image: url('../../assets/icons/fullscreen/enter.svg');
 }

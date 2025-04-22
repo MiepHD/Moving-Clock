@@ -6,7 +6,7 @@
   background: red;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  cursor: url('../../assets/cursor/click.svg') 8 8, pointer;
+  cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
   grid-column: 3 / span 1;
 }
 .slider:focus {
@@ -35,7 +35,7 @@
   height: 2ch;
   border-radius: 50%;
   background: red;
-  cursor: url('../../assets/cursor/move-horizontal.svg') 16 16, ew-resize;
+  cursor: url('../../assets/icons/cursor/move-horizontal.svg') 16 16, ew-resize;
 }
 
 .slider::-moz-range-thumb {

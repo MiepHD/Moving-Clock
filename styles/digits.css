@@ -15,7 +15,7 @@ fieldset label {
   font-size: 3.5ch;
   left: -1ch;
   top: -1ch;
-  cursor: url('../assets/cursor/click.svg') 8 8, pointer;
+  cursor: url('../assets/icons/cursor/click.svg') 8 8, pointer;
 }
 fieldset:has(input:focus) label {
   outline: 2px solid red;
