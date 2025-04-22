@@ -1,17 +1,18 @@
 class Hands {
   minutes;
   hours;
+
   setHand(angle, hand) {
-    if (angle > 360) angle = angle % 360;
+    if (Math.abs(angle) > 360) angle = angle % 360;
+    if (angle < 0) angle += 360;
     document.getElementById(hand).style.transform = 'rotate(' + angle + 'deg)';
   }
   setTime(time) {
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
-    const milliseconds = time.getMilliseconds();
+    const minutes = time.getMinutes(),
+      seconds = time.getSeconds();
 
-    this.minutes = ((minutes * 60 + seconds + milliseconds / 1000) / 10) % 360;
+    this.minutes =
+      ((minutes * 60 + seconds + time.getMilliseconds() / 1000) / 10) % 360;
     this.setHand(
       this.minutes +
         parseFloat(
@@ -22,7 +23,7 @@ class Hands {
       'minutes'
     );
 
-    this.hours = ((hours * 60 + minutes + seconds / 60) / 2) % 360;
+    this.hours = ((time.getHours() * 60 + minutes + seconds / 60) / 2) % 360;
     this.setHand(
       this.hours +
         parseFloat(

@@ -2,10 +2,14 @@ class FaceRotator {
   id;
   speed;
   rotating;
+  rotation;
+  elem;
   constructor(id) {
     this.id = id;
     this.speed = Math.random() * 60 - 30;
     this.rotating = true;
+    this.rotation = 270;
+    this.elem = document.getElementById('digits-' + this.id);
     document.getElementById('speed-slider-' + this.id).value = this.speed;
     document
       .getElementById('speed-slider-' + this.id)
@@ -16,21 +20,13 @@ class FaceRotator {
         this.rotating = e.target.checked;
       });
   }
-  updateRotation() {
-    if (!this.rotating) return;
-    document
-      .getElementById('digits-' + this.id)
-      .style.setProperty(
-        '--offset',
-        ((parseFloat(
-          document
-            .getElementById('digits-' + this.id)
-            .style.getPropertyValue('--offset')
-        ) +
-          this.speed / 100) %
-          360) +
-          'deg'
-      );
+  updateRotation(ms) {
+    if (this.rotating) {
+      this.rotation = (this.rotation + (this.speed * ms) / 2000) % 360;
+      this.elem.style.setProperty('--offset', this.rotation + 'deg');
+    } else {
+      this.elem.style.setProperty('--offset', '270deg');
+    }
   }
   setSpeed(e) {
     this.speed = e.target.value;
