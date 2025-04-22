@@ -1,13 +1,18 @@
 class Face {
+  //FaceRotator of minutes
   minutes;
+  //FaceRotator of hours
   hours;
+  //Date of last tick
   lasttime;
+  //If it should rotate or pause rotating
   rotating;
+  //If speed should adopt to framerate (If framerate's lower than 50FPS the clock will get slower to move smoothly)
   dynamicspeed;
 
   constructor() {
-    this.minutes = new FaceRotator('min');
-    this.hours = new FaceRotator('h');
+    this.minutes = new Rotator('min');
+    this.hours = new Rotator('h');
     this.lasttime = new Date();
     this.rotating = true;
     this.dynamicspeed = true;
@@ -17,7 +22,7 @@ class Face {
     const time = new Date();
     if (this.rotating) {
       const ms = this.dynamicspeed
-        ? 20
+        ? 50
         : time.getTime() - this.lasttime.getTime();
       this.minutes.updateRotation(ms);
       this.hours.updateRotation(ms);
@@ -26,7 +31,7 @@ class Face {
     this.lasttime = time;
   }
   /*
-   * Switches hours switch between 0-11 and 12-23
+   * Switches hours between 0-11 and 12-23
    */
   updateHours(hour) {
     const lasthour = this.lasttime.getHours();

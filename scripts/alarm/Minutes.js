@@ -1,4 +1,11 @@
-class Minutes extends Rotator {
+class Minutes extends Hand {
+  //Last angle in degree from 0 to 360
+  anglebefore;
+  constructor(face, element) {
+    super(face, element);
+    this.anglebefore = 0;
+  }
+
   updateOtherHand(angleMinutes) {
     let angleHours = this.otherhand.getAngle();
     angleHours = angleHours - (angleHours % 30) + angleMinutes / 12;

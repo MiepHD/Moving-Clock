@@ -1,55 +1,63 @@
-/*
- * Sets the rotation of the alarm hands depending on touch/cursor movement
- */
-
-class Rotator {
+//Sets the rotation of the alarm hands depending on touch/cursor movement
+class Hand {
+  //Hand
   elem;
-  /*
-   * In degree from 0 to 360
-   */
-  anglebefore;
-  /*
-   * In degree from 0 to 360
-   */
+  //Current angle in degree from 0 to 360
   angle;
+  //Clock's face
   face;
   otherhand;
+  //Middle of screen
+  middle;
+
   constructor(face, element) {
-    this.anglebefore = 0;
     this.elem = element;
     this.face = face;
     this.angle = 0;
-    this.elem.addEventListener('mousedown', this.start.bind(this));
-    this.elem.addEventListener('touchstart', this.start.bind(this));
+    this.middle = document.getElementById('middle').getBoundingClientRect();
+
+    this.update = this.update.bind(this);
+    this.start = this.start.bind(this);
+    this.save = this.save.bind(this);
+
+    this.elem.addEventListener('mousedown', this.start);
+    this.elem.addEventListener('touchstart', this.start);
   }
+
+  //On touch start
   start() {
     this.face.toggleRotation();
-    document.addEventListener('mouseup', this.save.bind(this), {
+    document.addEventListener('mouseup', this.save, {
       once: true,
     });
-    document.addEventListener('touchend', this.save.bind(this), {
+    document.addEventListener('touchend', this.save, {
       once: true,
     });
-    this.update = this.update.bind(this);
+
     document.addEventListener('mousemove', this.update);
     document.addEventListener('touchmove', this.update);
   }
+  //On touch end
   save() {
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
   }
+  //On touch movement
   update(e) {
+    //Only process first touch
     if (e.touches) e = e.touches[0];
-    const middle = document.getElementById('middle').getBoundingClientRect();
-    const x = e.clientX - middle.x;
-    const y = e.clientY - middle.y;
+
+    //Calculate angle
+    const x = e.clientX - this.middle.x;
+    const y = e.clientY - this.middle.y;
     let angle = Math.atan(y / x) * (180 / Math.PI);
     if (x < 0) angle = angle + 180;
     angle =
       angle -
       parseFloat(this.elem.parentElement.style.getPropertyValue('--offset'));
     if (angle < 0) angle = 360 + angle;
+
     this.setAngle(angle % 360);
     this.updateOtherHand(this.angle);
   }
@@ -64,7 +72,6 @@ class Rotator {
       this.angle = angle;
     }
   }
-
   addOtherHand(hand) {
     this.otherhand = hand;
   }

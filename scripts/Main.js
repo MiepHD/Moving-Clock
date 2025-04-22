@@ -2,6 +2,7 @@ class Main {
   hands;
   face;
   alarm;
+  //End of last tick
   lasttime;
 
   constructor() {
