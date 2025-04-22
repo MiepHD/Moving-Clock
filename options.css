@@ -1,15 +1,16 @@
 #options {
   pointer-events: all;
   display: grid;
+  column-gap: 0.25ch;
+  row-gap: 1ch;
   grid-template-columns: max-content max-content max-content;
   width: max-content;
 }
 
 img {
-  height: 3ch;
-  width: 3ch;
+  height: calc(2ch + 4px);
+  width: calc(2ch + 4px);
   cursor: url('assets/cursor/click.svg') 8 8, pointer;
-  grid-column: 1 / span 1;
 }
 
 /*Slider*/
@@ -61,19 +62,20 @@ img {
 input[type='checkbox'] {
   position: relative;
   -webkit-appearance: none;
-  background: red;
+  outline: 2px solid red;
   border-radius: 0.5ch;
   height: 2ch;
   width: 2ch;
-  margin: 0 auto;
+  margin: 2px;
   cursor: url('assets/cursor/click.svg') 8 8, pointer;
   grid-column: 1 / span 1;
 }
 
 input:checked:before {
   visibility: visible;
-  left: 0.25ch;
-  top: -0.25ch;
+  top: -0.375ch;
+  left: 0.125ch;
+  font-size: 2ch;
   color: darkred;
   content: '✓';
   font-weight: bold;
@@ -82,23 +84,32 @@ input:checked:before {
 }
 
 #eye:checked:before {
-  left: 0;
+  font-size: unset;
   color: red;
-  content: '👁';
+  background-image: url('assets/eye-open.svg');
 }
 
 #eye:not(:checked):before {
   visibility: visible;
-  left: 0.125ch;
-  top: -0.25ch;
   color: darkred;
-  content: '◡';
+  background-image: url('assets/eye-closed.svg');
   font-weight: bold;
   display: block;
   position: absolute;
 }
 #eye {
-  background: none;
+  outline: none;
+  width: calc(2ch + 4px);
+  height: calc(2ch + 4px);
+  margin: 0;
+}
+#eye:before {
+  top: 0;
+  left: 0;
+  content: '';
+  width: calc(2ch + 4px);
+  height: calc(2ch + 4px);
+  background-size: calc(2ch + 4px) calc(2ch + 4px);
 }
 
 /*Hover*/
