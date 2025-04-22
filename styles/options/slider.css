@@ -24,7 +24,6 @@
   background-color: red;
   font-weight: bold;
   font-size: large;
-  pointer-events: none;
 }
 
 .slider::-webkit-slider-thumb {
