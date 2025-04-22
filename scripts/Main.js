@@ -11,6 +11,7 @@ class Main {
       this.lasttime = new Date();
       this.face = new Face(this.lasttime.getHours());
       this.alarm = new Alarm(this.hands, this.face);
+      new Cursor();
 
       this.syncTime();
     });
