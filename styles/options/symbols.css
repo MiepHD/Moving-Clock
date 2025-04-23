@@ -1,17 +1,9 @@
 /* Symbols */
 
-.checkmark,
-.symbol:focus {
-  outline: 2px solid red;
-  border-radius: 0.5ch;
-}
-
 .symbol:before {
   top: 0;
   left: 0;
-  content: '';
   background-size: calc(2ch + 4px) calc(2ch + 4px);
-  position: absolute;
 }
 .symbol,
 .symbol:before {
@@ -41,7 +33,7 @@
 #eye,
 #eye:not(:checked):before,
 .checkmark,
-.checkmark:checked::before {
+.checkmark:checked:before {
   visibility: visible;
   grid-column: 1 / span 1;
 }

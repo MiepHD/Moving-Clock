@@ -1,11 +1,12 @@
 class Minutes extends Hand {
   //Last angle in degree from 0 to 360
   anglebefore;
-  constructor(face, element) {
-    super(face, element);
+  constructor(face, element, loadAlarm) {
+    super(face, element, loadAlarm);
     this.anglebefore = 0;
     face.minutes.elem.addEventListener('input', () => {
       this.setAngle(document.forms['clock']['minute'].value);
+      this.loadAlarm(new Date());
     });
   }
 

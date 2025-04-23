@@ -1,8 +1,9 @@
 class Hours extends Hand {
-  constructor(face, element) {
-    super(face, element);
+  constructor(face, element, loadAlarm) {
+    super(face, element, loadAlarm);
     face.hours.elem.addEventListener('input', () => {
       this.setAngle(document.forms['clock']['hour'].value);
+      this.loadAlarm(new Date());
     });
   }
   updateOtherHand(angleHours) {

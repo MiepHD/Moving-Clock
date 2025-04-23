@@ -3,3 +3,14 @@
   position: relative;
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
+
+#options input[type='checkbox']:before {
+  content: '';
+  position: absolute;
+}
+
+.checkmark,
+#options input[type='checkbox']:focus {
+  outline: 2px solid red;
+  border-radius: 0.5ch;
+}

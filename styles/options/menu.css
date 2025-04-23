@@ -7,10 +7,12 @@
   width: max-content;
 }
 
-#options > label,
+#options label,
 body > span {
   color: red;
   user-select: none;
   cursor: url('../../assets/icons/cursor/default.svg'), default;
+}
+#options > label {
   grid-column: 2 / span 1;
 }

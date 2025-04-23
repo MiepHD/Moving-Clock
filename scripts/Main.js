@@ -22,7 +22,7 @@ class Main {
 
     this.hands.setTime(start);
     this.face.rotate();
-    this.alarm.alarm(start.getHours());
+    this.alarm.alarm(start);
 
     //Calculate framerate and how long to wait for next tick
     const end = new Date();
