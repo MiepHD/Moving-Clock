@@ -21,7 +21,7 @@ class Alarm {
     this.audio.loop = true;
 
     this.hands = hands;
-    this.activeAlarm = this.getAlarmByTime(new Date());
+    this.activeAlarm = this.getIdByDate(new Date());
 
     for (const alarm of document.querySelectorAll('#timeline .toggle')) {
       this.alarms[alarm.id] = {
@@ -37,7 +37,7 @@ class Alarm {
         this.setting = true;
         id = document.forms['timeline']['edit'].value;
       } else {
-        id = this.getAlarmByTime(new Date());
+        id = this.getIdByDate(new Date());
         this.setting = false;
       }
       this.loadAlarm(id);
@@ -76,7 +76,7 @@ class Alarm {
   }
 
   alarm(time) {
-    time = this.getAlarmByTime(time);
+    time = this.getIdByDate(time);
     this.updateAlarm(time);
     const currentminangle = this.hands.getMinutes(),
       currenthangle = this.hands.getHours();
@@ -138,7 +138,7 @@ class Alarm {
   isAlarmActive(time) {
     return this.alarms[time]['toggle'].checked;
   }
-  getAlarmByTime(time) {
+  getIdByDate(time) {
     return `${time.getHours() >= 12 ? 'PM' : 'AM'}${time.getDay()}`;
   }
 }

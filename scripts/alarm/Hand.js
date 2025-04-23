@@ -47,7 +47,7 @@ class Hand {
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
-    this.alarm.loadAlarm(this.alarm.getAlarmByTime(new Date()));
+    this.loadAlarm();
   }
   //On touch movement
   update(e) {
@@ -68,7 +68,7 @@ class Hand {
     this.updateOtherHand(this.angle);
   }
   loadAlarm() {
-    this.alarm.loadAlarm(this.alarm.getAlarmByDate(new Date()));
+    this.alarm.loadAlarm(this.alarm.getIdByDate(new Date()));
   }
 
   getAngle() {
