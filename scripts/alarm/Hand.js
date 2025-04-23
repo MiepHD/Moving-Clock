@@ -1,6 +1,6 @@
 //Sets the rotation of the alarm hands depending on touch/cursor movement
 class Hand {
-  loadAlarm;
+  alarm;
   //Hand
   elem;
   //Current angle in degree from 0 to 360
@@ -12,8 +12,8 @@ class Hand {
   middle;
   state;
 
-  constructor(face, element, loadAlarm) {
-    this.loadAlarm = loadAlarm;
+  constructor(face, element, alarm) {
+    this.alarm = alarm;
     this.elem = element;
     this.face = face;
     this.angle = 0;
@@ -47,7 +47,7 @@ class Hand {
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
-    this.loadAlarm(new Date());
+    this.alarm.loadAlarm(this.alarm.getAlarmByTime(new Date()));
   }
   //On touch movement
   update(e) {
@@ -66,6 +66,9 @@ class Hand {
 
     this.setAngle(angle % 360);
     this.updateOtherHand(this.angle);
+  }
+  loadAlarm() {
+    this.alarm.loadAlarm(this.alarm.getAlarmByDate(new Date()));
   }
 
   getAngle() {

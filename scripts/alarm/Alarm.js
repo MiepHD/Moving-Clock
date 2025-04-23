@@ -8,17 +8,12 @@ class Alarm {
   alarms = {};
   activeAlarm;
   constructor(hands, face) {
-    this.loadAlarm = this.loadAlarm.bind(this);
     this.minutes = new Minutes(
       face,
       document.getElementById('target-min'),
-      this.loadAlarm
+      this
     );
-    this.hours = new Hours(
-      face,
-      document.getElementById('target-h'),
-      this.loadAlarm
-    );
+    this.hours = new Hours(face, document.getElementById('target-h'), this);
     this.minutes.addOtherHand(this.hours);
     this.hours.addOtherHand(this.minutes);
 
