@@ -1,8 +1,11 @@
 /* Symbols */
 
-.symbol:not(:focus) {
-  outline: none;
+.checkmark,
+.symbol:focus {
+  outline: 2px solid red;
+  border-radius: 0.5ch;
 }
+
 .symbol:before {
   top: 0;
   left: 0;
