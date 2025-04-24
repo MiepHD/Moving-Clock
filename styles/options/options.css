@@ -1,5 +1,4 @@
 #options {
-  pointer-events: all;
   display: grid;
   column-gap: 0.25ch;
   row-gap: 1ch;
@@ -12,6 +11,7 @@ body > span {
 }
 
 #options input {
+  pointer-events: all;
   position: relative;
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
