@@ -14,7 +14,7 @@
   --time: 0;
   width: 2ch;
 }
-#timeline .edit {
+#timeline input[name='edit'] {
   width: 1ch;
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
@@ -26,7 +26,7 @@
   background: red;
   border-radius: 3px;
 }
-#timeline > .edit:checked {
+#timeline > input[name='edit']:checked {
   background: red;
   cursor: url('../../assets/icons/cursor/default.svg'), default;
 }

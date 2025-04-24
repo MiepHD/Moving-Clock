@@ -11,7 +11,7 @@ body {
   user-select: none;
   background-color: black;
 }
-body > #clock {
+form[name='clock'] {
   position: absolute;
   top: 0;
   bottom: 0;
