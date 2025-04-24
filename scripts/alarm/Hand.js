@@ -58,13 +58,13 @@ class Hand {
     const x = e.clientX - this.middle.x;
     const y = e.clientY - this.middle.y;
     let angle = Math.atan(y / x) * (180 / Math.PI);
-    if (x < 0) angle = angle + 180;
-    angle =
-      angle -
-      parseFloat(this.elem.parentElement.style.getPropertyValue('--offset'));
-    if (angle < 0) angle = 360 + angle;
-
-    this.setAngle(angle % 360);
+    if (x < 0) angle += 180;
+    angle -= parseFloat(
+      this.elem.parentElement.style.getPropertyValue('--offset')
+    );
+    angle %= 360;
+    if (angle < 0) angle += 360;
+    this.setAngle(angle);
     this.updateOtherHand(this.angle);
   }
   loadAlarm() {
