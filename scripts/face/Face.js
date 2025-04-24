@@ -22,35 +22,22 @@ class Face {
     }
   }
 
-  rotate() {
-    const time = new Date();
+  rotate(hour) {
     if (this.rotating) {
-      const ms = this.dynamicspeed
-        ? 50
-        : time.getTime() - this.lasttime.getTime();
-      this.minutes.updateRotation(ms);
-      this.hours.updateRotation(ms);
+      this.minutes.updateRotation();
+      this.hours.updateRotation();
     }
-    this.updateHours(time.getHours());
-    this.lasttime = time;
+    this.updateHours(hour);
   }
   /*
    * Switches hours between 0-11 and 12-23
    */
   updateHours(hour) {
-    const lasthour = this.lasttime.getHours();
-    if (!lasthour || hour != lasthour) {
+    if (hour != this.lasthour) {
       const hourToUpdate = (hour + 7) % 24;
       document.querySelector(`.d${hourToUpdate}`).textContent = hourToUpdate;
     }
-  }
-
-  setMinutesSpeed(speed) {
-    this.hours.setMinutesSpeed(speed);
-  }
-
-  setHoursSpeed(speed) {
-    this.hours.setHoursSpeed(speed);
+    this.lasthour = hour;
   }
 
   toggleRotation() {

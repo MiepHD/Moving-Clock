@@ -25,7 +25,7 @@ class Main {
     const start = new Date();
 
     this.hands.setTime(start);
-    this.face.rotate();
+    this.face.rotate(start.getHours());
     this.alarm.alarm(start);
 
     const end = new Date();

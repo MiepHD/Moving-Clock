@@ -3,7 +3,7 @@ class Hours extends Hand {
     super(face, element, alarm);
     face.hours.elem.addEventListener('input', () => {
       this.setAngle(document.forms['clock']['hour'].value);
-      this.loadAlarm();
+      this.alarm.saveAlarm();
     });
   }
   updateOtherHand(angleHours) {

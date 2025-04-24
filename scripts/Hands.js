@@ -1,48 +1,53 @@
 class Hands {
-  //Angle in degree from 0 to 360 of minutes hand
+  //Angles
   minutes;
-  //Angle in degree from 0 to 360 of hours hand
   hours;
 
-  //Takes "min" or "h" as hand input
-  setHand(angle, hand) {
-    if (Math.abs(angle) > 360) angle = angle % 360;
-    if (angle < 0) angle += 360;
-    document.getElementById(hand).style.transform = 'rotate(' + angle + 'deg)';
+  mindigits;
+  hdigits;
+  minhand;
+  hhand;
+
+  constructor() {
+    this.minutes = {
+      digits: document.getElementById('digits-min'),
+      hand: document.getElementById('minutes'),
+      angle: 0,
+    };
+    this.hours = {
+      digits: document.getElementById('digits-h'),
+      hand: document.getElementById('hours'),
+      angle: 0,
+    };
+  }
+
+  //Takes an elem as hand
+  setHand(hand) {
+    hand.hand.style.transform =
+      'rotate(' +
+      //Add offset to rotate hand properly with face
+      ((hand.angle +
+        parseFloat(hand.digits.style.getPropertyValue('--offset'))) %
+        360) +
+      'deg)';
   }
   //Takes a Date as time input
   setTime(time) {
     const minutes = time.getMinutes(),
       seconds = time.getSeconds();
 
-    this.minutes =
-      ((minutes * 60 + seconds + time.getMilliseconds() / 1000) / 10) % 360;
-    this.setHand(
-      this.minutes +
-        //Add offset to rotate hand properly with face
-        parseFloat(
-          document
-            .getElementById('digits-min')
-            .style.getPropertyValue('--offset')
-        ),
-      'minutes'
-    );
+    this.minutes.angle =
+      (minutes * 60 + seconds + time.getMilliseconds() / 1000) / 10;
+    this.setHand(this.minutes);
 
-    this.hours = ((time.getHours() * 60 + minutes + seconds / 60) / 2) % 360;
-    this.setHand(
-      this.hours +
-        //Add offset to rotate hand properly with face
-        parseFloat(
-          document.getElementById('digits-h').style.getPropertyValue('--offset')
-        ),
-      'hours'
-    );
+    this.hours.angle = (time.getHours() * 60 + minutes + seconds / 60) / 2;
+    this.setHand(this.hours);
   }
 
   getMinutes() {
-    return this.minutes;
+    return this.minutes.angle;
   }
   getHours() {
-    return this.hours;
+    return this.hours.angle;
   }
 }

@@ -18,11 +18,11 @@ class Rotator {
     this.elem = document.getElementById('digits-' + this.id);
 
     //Speed slider handler
-    document.getElementById('speed-slider-' + this.id).value =
-      this.speed * 1000;
-    document
-      .getElementById('speed-slider-' + this.id)
-      .addEventListener('input', this.setSpeed.bind(this));
+    const speedslider = document.getElementById('speed-slider-' + this.id);
+    speedslider.value = this.speed * 1000;
+    speedslider.addEventListener('input', (e) => {
+      this.speed = e.target.value / 1000;
+    });
     //Speed checkbox
     document
       .getElementById(this.id + '-moving')
@@ -31,16 +31,12 @@ class Rotator {
       });
   }
 
-  updateRotation(ms) {
+  updateRotation() {
     if (this.rotating) {
-      this.rotation = (this.rotation + this.speed * ms) % 360;
+      this.rotation = (this.rotation + this.speed * 50) % 360;
       this.elem.style.setProperty('--offset', this.rotation + 'deg');
     } else {
       this.elem.style.setProperty('--offset', '270deg');
     }
-  }
-
-  setSpeed(e) {
-    this.speed = e.target.value / 1000;
   }
 }

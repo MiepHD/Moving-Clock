@@ -3,13 +3,12 @@ class Hand {
   alarm;
   //Hand
   elem;
-  //Current angle in degree from 0 to 360
-  angle;
   //Clock's face
   face;
-  otherhand;
+  angle;
   //Middle of screen
   middle;
+  otherhand;
   state;
 
   constructor(face, element, alarm) {
@@ -31,12 +30,9 @@ class Hand {
   start() {
     this.state = true;
     this.face.toggleRotation();
-    document.addEventListener('mouseup', this.save, {
-      once: true,
-    });
-    document.addEventListener('touchend', this.save, {
-      once: true,
-    });
+    const options = { once: true };
+    document.addEventListener('mouseup', this.save, options);
+    document.addEventListener('touchend', this.save, options);
 
     document.addEventListener('mousemove', this.update);
     document.addEventListener('touchmove', this.update);
@@ -47,7 +43,7 @@ class Hand {
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
-    this.loadAlarm();
+    this.alarm.saveAlarm();
   }
   //On touch movement
   update(e) {
@@ -67,9 +63,6 @@ class Hand {
     this.setAngle(angle);
     this.updateOtherHand(this.angle);
   }
-  loadAlarm() {
-    this.alarm.loadAlarm(this.alarm.getIdByDate(new Date()));
-  }
 
   getAngle() {
     return this.angle;
@@ -79,10 +72,8 @@ class Hand {
   }
 
   setAngle(angle) {
-    if (angle != undefined && angle >= 0 && angle <= 360) {
-      this.elem.style.setProperty('--rot', angle + 'deg');
-      this.angle = angle;
-    }
+    this.elem.style.setProperty('--rot', angle + 'deg');
+    this.angle = angle;
   }
   addOtherHand(hand) {
     this.otherhand = hand;
