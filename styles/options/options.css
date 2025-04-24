@@ -1,7 +1,7 @@
 #options {
   display: grid;
-  column-gap: 0.25ch;
-  row-gap: 1ch;
+  column-gap: 0.5ch;
+  row-gap: 2ch;
   grid-template-columns: repeat(3, max-content);
 }
 
@@ -26,5 +26,5 @@ body > span {
 #options input[type='radio']:focus,
 fieldset:has(input:focus) label {
   outline: 2px solid red;
-  border-radius: 0.5ch;
+  border-radius: 1ch;
 }

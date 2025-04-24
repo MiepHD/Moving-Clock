@@ -2,9 +2,9 @@
 
 .symbol,
 .symbol:before {
-  width: calc(2ch + 4px);
-  height: calc(2ch + 4px);
-  background-size: calc(2ch + 4px) calc(2ch + 4px);
+  width: calc(4ch + 4px);
+  height: calc(4ch + 4px);
+  background-size: calc(4ch + 4px) calc(4ch + 4px);
 }
 
 /* Eye */

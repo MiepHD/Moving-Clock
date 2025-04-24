@@ -12,7 +12,7 @@ fieldset label {
   text-align: center;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
-  font-size: 3.5ch;
+  font-size: 7ch;
   left: -1ch;
   top: -1ch;
   cursor: url('../assets/icons/cursor/click.svg') 8 8, pointer;
@@ -20,7 +20,8 @@ fieldset label {
 fieldset {
   border: none;
   position: absolute;
-  width: calc(var(--circle-size) + 2ch);
+  top: 2ch;
+  width: calc(var(--circle-size) + 4ch);
   height: calc(var(--circle-size));
   margin: 0;
   padding: 0;
@@ -38,13 +39,13 @@ fieldset {
 }
 
 #digits-h {
-  --circle-size: 40ch;
-  left: 5ch;
-  top: 5ch;
+  --circle-size: 80ch;
+  left: 10ch;
+  top: 10ch;
 }
 
 #digits-min {
-  --circle-size: 50ch;
+  --circle-size: 100ch;
 }
 
 fieldset > div:nth-child(2) {

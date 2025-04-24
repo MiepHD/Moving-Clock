@@ -1,25 +1,25 @@
 input[type='range'] {
-  height: 1ch;
-  border-radius: 0.5ch;
+  height: 2ch;
+  border-radius: 1ch;
   background: red;
 }
 input[type='range']:focus {
   outline: 2px solid darkred;
 }
 input[type='range']:before {
-  left: calc(50% - 0.125ch);
-  top: -1ch;
-  width: 0.25ch;
-  border-radius: 0.125ch;
-  height: 3ch;
+  left: calc(50% - 0.25ch);
+  top: -2ch;
+  width: 0.5ch;
+  border-radius: 0.25ch;
+  height: 6ch;
   background: red;
 }
 
 input[type='range']::-webkit-slider-thumb {
   position: relative;
   appearance: none;
-  width: 2ch;
-  height: 2ch;
+  width: 4ch;
+  height: 4ch;
   border-radius: 50%;
   background: red;
   cursor: url('../../assets/icons/cursor/move-horizontal.svg') 16 16, ew-resize;
@@ -27,8 +27,8 @@ input[type='range']::-webkit-slider-thumb {
 input[type='range']::-moz-range-thumb {
   position: relative;
   appearance: none;
-  width: 2ch;
-  height: 2ch;
+  width: 4ch;
+  height: 4ch;
   border-radius: 50%;
   background: red;
   cursor: url('../../assets/icons/cursor/move-horizontal.svg') 16 16, ew-resize;

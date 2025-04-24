@@ -23,11 +23,11 @@
 }
 #minutes,
 #target-min {
-  --size: 0.4ch;
-  width: 24.6ch;
+  --size: 0.8ch;
+  width: 49.2ch;
 }
 #hours,
 #target-h {
-  --size: 0.6ch;
-  width: 19.8ch;
+  --size: 1.2ch;
+  width: 39.6ch;
 }

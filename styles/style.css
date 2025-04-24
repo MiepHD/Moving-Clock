@@ -18,15 +18,15 @@ form[name='clock'] {
   left: 0;
   right: 0;
   margin: auto;
-  width: 52ch;
-  height: 52ch;
+  width: 104ch;
+  height: 104ch;
 }
 
 /* Error message and framerate */
 body > span {
   position: absolute;
-  bottom: 1ch;
-  left: 1ch;
+  bottom: 2ch;
+  left: 2ch;
 }
 
 #middle {
