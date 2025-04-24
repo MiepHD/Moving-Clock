@@ -4,6 +4,8 @@ class Main {
   alarm;
   //End of last tick
   lasttime;
+  error;
+  lastframerate;
 
   constructor() {
     document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +13,8 @@ class Main {
       this.lasttime = new Date();
       this.face = new Face(this.lasttime.getHours());
       this.alarm = new Alarm(this.hands, this.face);
+      this.error = document.querySelector('body > span');
+      this.lastframerate = 0;
       new Cursor();
 
       this.syncTime();
@@ -24,16 +28,24 @@ class Main {
     this.face.rotate();
     this.alarm.alarm(start);
 
-    //Calculate framerate and how long to wait for next tick
     const end = new Date();
-    const slt = end.getTime() - this.lasttime.getTime(); //Since end of Last Tick
-    const stt = end.getTime() - start.getTime(); //Since start of This Tick
-    const framerate = Math.round(1000 / slt);
-    if (framerate < 30)
-      document.querySelector('body > span').textContent = framerate;
+    this.calculateFramerate(end);
     this.lasttime = end;
-    const wait = 20 - stt;
-    setTimeout(this.syncTime.bind(this), wait);
+    setTimeout(
+      this.syncTime.bind(this),
+      20 - (end.getTime() - start.getTime())
+    );
+  }
+
+  calculateFramerate(end) {
+    const framerate = Math.round(
+      1000 / (end.getTime() - this.lasttime.getTime())
+    );
+    if (framerate < 30) {
+      this.error.textContent = `${framerate} FPS`;
+    } else if (this.lastframerate < 30) {
+      this.error.textContent = '';
+    }
   }
 }
 
