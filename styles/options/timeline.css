@@ -3,45 +3,42 @@
   right: 2ch;
   display: grid;
   gap: 3px;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, auto);
 }
 #timeline > input {
   margin: 0;
+  background-color: darkred;
+  height: 3ch;
 }
 #timeline .toggle {
   --time: 0;
   width: 2ch;
-  height: 3ch;
-  background-color: darkred;
 }
 #timeline .edit {
   width: 1ch;
-  height: 3ch;
-  background-color: darkred;
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
 #timeline > .toggle:checked:before {
-  position: absolute;
   top: calc((100% - 3px) * var(--time) / 360);
   left: 1ch;
   width: 2ch;
   height: 3px;
-  background-color: red;
+  background: red;
   border-radius: 3px;
 }
 #timeline > .edit:checked {
-  background-color: red;
+  background: red;
   cursor: url('../../assets/icons/cursor/default.svg'), default;
 }
 #timeline input:first-of-type {
-  border-radius: 0.5ch 0 0 0;
+  border-top-left-radius: 0.5ch;
 }
 #timeline input:nth-of-type(2) {
-  border-radius: 0 0.5ch 0 0;
+  border-top-right-radius: 0.5ch;
 }
 #timeline input:nth-of-type(27) {
-  border-radius: 0 0 0 0.5ch;
+  border-bottom-left-radius: 0.5ch;
 }
 #timeline input:last-of-type {
-  border-radius: 0 0 0.5ch 0;
+  border-bottom-right-radius: 0.5ch;
 }

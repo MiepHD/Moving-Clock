@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/checkboxes.css" />
     <link rel="stylesheet" href="./styles/digits.css" />
     <link rel="stylesheet" href="./styles/hands.css" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/options/checkboxes.css" />
-    <link rel="stylesheet" href="./styles/options/menu.css" />
+    <link rel="stylesheet" href="./styles/options/options.css" />
     <link rel="stylesheet" href="./styles/options/slider.css" />
     <link rel="stylesheet" href="./styles/options/symbols.css" />
     <link rel="stylesheet" href="./styles/options/timeline.css" />
@@ -27,7 +25,11 @@
     <span></span>
     <form name="clock" id="clock">
       <div id="middle"></div>
-      <fieldset class="digits" id="digits-h">
+      <div id="hands">
+        <div id="hours"></div>
+        <div id="minutes"></div>
+      </div>
+      <fieldset id="digits-h">
         <legend>Hour</legend>
         <div>
           <input type="radio" id="h0" name="hour" value="0" /><label
@@ -115,7 +117,7 @@
         </div>
         <div id="target-h"></div>
       </fieldset>
-      <fieldset class="digits" id="digits-min">
+      <fieldset id="digits-min">
         <legend>Minute</legend>
         <div>
           <input type="radio" id="min60" name="minute" value="0" /><label
@@ -191,10 +193,6 @@
         </div>
         <div id="target-min"></div>
       </fieldset>
-      <div id="hands">
-        <div id="hours"></div>
-        <div id="minutes"></div>
-      </div>
     </form>
     <div id="options">
       <input

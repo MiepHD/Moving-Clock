@@ -1,54 +1,33 @@
-#hands {
-  position: absolute;
-  padding: 0;
-}
 #hands > div {
   position: absolute;
+  background: red;
 }
-#minutes {
-  z-index: -1;
-  background-color: red;
-  width: 24.6ch;
-  translate: 24.6ch 24.6ch;
-  height: 0.8ch;
-  transform-origin: 0.4ch 0.4ch;
-  transform: rotate(-90deg);
-  border-radius: 0.4ch;
-}
+#target-min,
+#target-h,
+#minutes,
 #hours {
-  z-index: -1;
-  background-color: red;
-  width: 19.8ch;
-  height: 1.2ch;
-  translate: 24.4ch 24.4ch;
-  transform-origin: 0.6ch 0.6ch;
-  transform: rotate(-90deg);
-  border-radius: 0.6ch;
+  height: calc(var(--size) * 2);
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  transform-origin: var(--size) var(--size);
+  border-radius: var(--size);
 }
-
-#target-min {
-  z-index: -1;
-  pointer-events: all;
-  background-color: darkred;
-  width: 24.6ch;
-  height: 0.8ch;
-  top: calc(50% - 0.4ch);
-  left: calc(50% - 0.4ch);
-  transform-origin: 0.4ch 0.4ch;
-  transform: rotate(calc(var(--offset) + var(--rot)));
-  border-radius: 0.4ch;
-  cursor: url('../assets/icons/cursor/rotate.svg') 16 16, grab;
-}
+#target-min,
 #target-h {
   z-index: -1;
   pointer-events: all;
-  background-color: darkred;
-  width: 19.8ch;
-  height: 1.2ch;
-  top: calc(50% - 0.6ch);
-  left: calc(50% - 0.6ch);
-  transform-origin: 0.6ch 0.6ch;
+  background: darkred;
+  rotate: unset;
   transform: rotate(calc(var(--offset) + var(--rot)));
-  border-radius: 0.6ch;
   cursor: url('../assets/icons/cursor/rotate.svg') 16 16, grab;
+}
+#minutes,
+#target-min {
+  --size: 0.4ch;
+  width: 24.6ch;
+}
+#hours,
+#target-h {
+  --size: 0.6ch;
+  width: 19.8ch;
 }

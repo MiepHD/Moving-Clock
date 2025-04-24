@@ -1,0 +1,30 @@
+#options {
+  pointer-events: all;
+  display: grid;
+  column-gap: 0.25ch;
+  row-gap: 1ch;
+  grid-template-columns: repeat(3, max-content);
+}
+
+#options label,
+body > span {
+  color: red;
+}
+
+#options input {
+  position: relative;
+  cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
+}
+
+#options input:before {
+  content: '';
+  position: absolute;
+}
+
+.checkmark,
+#options input[type='checkbox']:focus,
+#options input[type='radio']:focus,
+fieldset:has(input:focus) label {
+  outline: 2px solid red;
+  border-radius: 0.5ch;
+}

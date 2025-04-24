@@ -1,15 +1,10 @@
 /* Symbols */
 
-.symbol:before {
-  top: 0;
-  left: 0;
-  background-size: calc(2ch + 4px) calc(2ch + 4px);
-}
 .symbol,
 .symbol:before {
   width: calc(2ch + 4px);
   height: calc(2ch + 4px);
-  display: block;
+  background-size: calc(2ch + 4px) calc(2ch + 4px);
 }
 
 /* Eye */
@@ -17,28 +12,26 @@
 #eye:checked:before {
   background-image: url('../../assets/icons/eye/open.svg');
 }
-
 #eye:not(:checked):before {
   background-image: url('../../assets/icons/eye/closed.svg');
 }
-#options > * {
+#eye,
+#eye:before {
+  visibility: visible !important;
+}
+/* Show/hide options */
+#options:has(#eye:not(:checked)) > * {
   visibility: hidden;
 }
 #options:has(#eye:checked) > * {
   visibility: visible;
 }
 
-/* Eye and Checkmark */
+/* Checkmark */
 
-#eye,
-#eye:not(:checked):before,
-.checkmark,
-.checkmark:checked:before {
-  visibility: visible;
+.checkmark {
   grid-column: 1 / span 1;
 }
-
-/* Checkmark */
 
 .checkmark:checked:before {
   background-image: url('../../assets/icons/check.svg');
@@ -46,9 +39,6 @@
 
 /* Fullscreen */
 
-#fullscreen {
-  grid-column: unset;
-}
 #fullscreen:checked:before {
   background-image: url('../../assets/icons/fullscreen/leave.svg');
 }

@@ -6,7 +6,7 @@ fieldset label {
   position: absolute;
   color: red;
   font-weight: bold;
-  rotate: calc(-1 * var(--rot));
+  rotate: calc(-1 * (var(--rot) + var(--offset)));
   width: 2ch;
   height: 2ch;
   text-align: center;
@@ -17,98 +17,69 @@ fieldset label {
   top: -1ch;
   cursor: url('../assets/icons/cursor/click.svg') 8 8, pointer;
 }
-fieldset:has(input:focus) label {
-  outline: 2px solid red;
-  border-radius: 0.5ch;
-}
-.digits {
+fieldset {
   border: none;
-  --item-size: 2ch;
   position: absolute;
-  width: var(--circle-size);
-  height: var(--circle-size);
+  width: calc(var(--circle-size) + 2ch);
+  height: calc(var(--circle-size));
+  margin: 0;
   padding: 0;
-  list-style: none;
 
-  --angle: 30deg;
-  --offset: -90deg;
-
-  > * {
+  > div {
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
+    rotate: calc(var(--rot) + var(--offset));
+    transform: translate(calc(var(--circle-size) / 2));
   }
 }
 
 #digits-h {
   --circle-size: 40ch;
-  transform: translate(5ch, 5ch);
+  left: 5ch;
+  top: 5ch;
 }
 
 #digits-min {
   --circle-size: 50ch;
 }
 
-.digits > div:nth-child(2) {
-  --rot: calc(var(--angle) * 0 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(2) {
+  --rot: 0deg;
 }
-.digits > div:nth-child(3) {
-  --rot: calc(var(--angle) * 1 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(3) {
+  --rot: 30deg;
 }
-.digits > div:nth-child(4) {
-  --rot: calc(var(--angle) * 2 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(4) {
+  --rot: 60deg;
 }
-.digits > div:nth-child(5) {
-  --rot: calc(var(--angle) * 3 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(5) {
+  --rot: 90deg;
 }
-.digits > div:nth-child(6) {
-  --rot: calc(var(--angle) * 4 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(6) {
+  --rot: 120deg;
 }
-.digits > div:nth-child(7) {
-  --rot: calc(var(--angle) * 5 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(7) {
+  --rot: 150deg;
 }
-.digits > div:nth-child(8) {
-  --rot: calc(var(--angle) * 6 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(8) {
+  --rot: 180deg;
 }
-.digits > div:nth-child(9) {
-  --rot: calc(var(--angle) * 7 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(9) {
+  --rot: 210deg;
 }
-.digits > div:nth-child(10) {
-  --rot: calc(var(--angle) * 8 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(10) {
+  --rot: 240deg;
 }
-.digits > div:nth-child(11) {
-  --rot: calc(var(--angle) * 9 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(11) {
+  --rot: 270deg;
 }
-.digits > div:nth-child(12) {
-  --rot: calc(var(--angle) * 10 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(12) {
+  --rot: 300deg;
 }
-.digits > div:nth-child(13) {
-  --rot: calc(var(--angle) * 11 + var(--offset));
-  rotate: var(--rot);
-  transform: translate(calc(var(--circle-size) / 2));
+fieldset > div:nth-child(13) {
+  --rot: 330deg;
 }

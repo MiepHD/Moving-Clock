@@ -2,20 +2,17 @@
   font-family: 'sevensegment';
   src: url('../assets/Seven\ Segment.ttf') format('truetype');
 }
-body {
-  pointer-events: none;
-  padding: 1ch;
-  font-family: 'sevensegment';
-}
-html {
-  background-color: black;
+:root {
   cursor: url('../assets/icons/cursor/default.svg'), default;
 }
-body > #clock {
-  --rot: 0deg;
-  position: absolute;
+body {
   pointer-events: none;
+  font-family: 'sevensegment';
   user-select: none;
+  background-color: black;
+}
+body > #clock {
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -24,17 +21,20 @@ body > #clock {
   width: 52ch;
   height: 52ch;
 }
+
+/* Error message and framerate */
 body > span {
   position: absolute;
-  top: unset;
-  bottom: 3ch;
+  bottom: 1ch;
   left: 1ch;
 }
+
 #middle {
   position: absolute;
-  left: calc(50% - 1ch);
-  top: calc(50% - 1ch);
-  margin: 0;
-  width: 0;
-  height: 0;
+  left: 50%;
+  top: 50%;
+}
+
+input {
+  appearance: none;
 }
