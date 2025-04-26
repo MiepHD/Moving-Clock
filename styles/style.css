@@ -5,21 +5,28 @@
 :root {
   cursor: url('../assets/icons/cursor/default.svg'), default;
 }
-body {
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  user-select: none;
   pointer-events: none;
   font-family: 'sevensegment';
-  user-select: none;
-  background-color: black;
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr min(100%, calc(100dvh - 64px)) 1fr;
+  margin: 0;
+  padding: 32px;
+  height: -webkit-fill-available;
 }
 form[name='clock'] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: min(100%, calc(100dvh - 64px));
+  aspect-ratio: 1 / 1;
+  height: auto;
   margin: auto;
-  width: 104ch;
-  height: 104ch;
+  position: relative;
 }
 
 /* Error message and framerate */

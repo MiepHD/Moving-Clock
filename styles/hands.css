@@ -7,10 +7,13 @@
 #minutes,
 #hours {
   height: calc(var(--size) * 2);
-  top: calc(50% - var(--size));
   left: calc(50% - var(--size));
   transform-origin: var(--size) var(--size);
   border-radius: var(--size);
+}
+#hours,
+#minutes {
+  top: 50%;
 }
 #target-min,
 #target-h {
@@ -18,16 +21,17 @@
   pointer-events: all;
   background: darkred;
   rotate: unset;
+  top: calc(50% - var(--size));
   transform: rotate(calc(var(--offset) + var(--rot)));
   cursor: url('../assets/icons/cursor/rotate.svg') 16 16, grab;
 }
 #minutes,
 #target-min {
   --size: 0.8ch;
-  width: 49.2ch;
+  width: calc(50% - 7ch);
 }
 #hours,
 #target-h {
   --size: 1.2ch;
-  width: 39.6ch;
+  width: calc(50% - 17.5ch);
 }

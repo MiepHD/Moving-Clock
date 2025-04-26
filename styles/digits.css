@@ -6,7 +6,7 @@ fieldset label {
   position: absolute;
   color: red;
   font-weight: bold;
-  rotate: calc(-1 * (var(--rot) + var(--offset)));
+  rotate: calc(-1 * (var(--rot) + var(--offset) + 180deg));
   width: 2ch;
   height: 2ch;
   text-align: center;
@@ -18,34 +18,30 @@ fieldset label {
   cursor: url('../assets/icons/cursor/click.svg') 8 8, pointer;
 }
 fieldset {
-  border: none;
   position: absolute;
-  top: 2ch;
-  width: calc(var(--circle-size) + 4ch);
-  height: calc(var(--circle-size));
+  border: none;
+  width: min(100%, calc(100vh - 20px));
+  aspect-ratio: 1 / 1;
+  height: auto;
   margin: 0;
   padding: 0;
 
   > div {
-    display: block;
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 0;
+    left: var(--circle-distance);
+    width: calc(100% - var(--circle-distance) * 2);
     height: 0;
-    rotate: calc(var(--rot) + var(--offset));
-    transform: translate(calc(var(--circle-size) / 2));
+    rotate: calc(var(--rot) + var(--offset) + 180deg);
   }
 }
 
 #digits-h {
-  --circle-size: 80ch;
-  left: 10ch;
-  top: 10ch;
+  --circle-distance: 17.5ch;
 }
 
 #digits-min {
-  --circle-size: 100ch;
+  --circle-distance: 7ch;
 }
 
 fieldset > div:nth-child(2) {

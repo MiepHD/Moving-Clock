@@ -9,6 +9,10 @@ class Main {
 
   constructor() {
     document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('scroll', () => {
+        window.scrollTo(0, 0);
+      });
+
       this.hands = new Hands();
       this.lasttime = new Date();
       this.face = new Face(this.lasttime.getHours());

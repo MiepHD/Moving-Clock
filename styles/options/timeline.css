@@ -1,14 +1,14 @@
 #timeline {
-  position: absolute;
-  right: 4ch;
   display: grid;
   gap: 3px;
   grid-template-columns: repeat(3, auto);
+  height: max-content;
+  margin-left: auto;
 }
 #timeline > input {
   margin: 0;
   background-color: darkred;
-  height: 6ch;
+  height: 4ch;
 }
 #timeline .toggle {
   --time: 0;

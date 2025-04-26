@@ -23,6 +23,53 @@
   </head>
   <body>
     <span></span>
+    <div id="options">
+      <input
+        type="checkbox"
+        id="eye"
+        class="symbol"
+        aria-label="Toggle settings"
+      />
+      <input
+        type="checkbox"
+        id="fullscreen"
+        class="symbol"
+        aria-label="Toggle fullscreen"
+        onclick="document.webkitIsFullScreen ? document.exitFullscreen() : document.body.requestFullscreen()"
+      />
+      <input
+        type="checkbox"
+        id="h-moving"
+        class="checkmark symbol"
+        aria-label="Toggle rotation of hours"
+        checked
+      />
+      <label for="speed-slider-h">Hours</label>
+      <input
+        type="range"
+        min="-30"
+        max="30"
+        value="0"
+        id="speed-slider-h"
+        aria-label="Speed of hours"
+      />
+      <input
+        type="checkbox"
+        id="min-moving"
+        class="checkmark symbol"
+        aria-label="Toggle rotation of minutes"
+        checked
+      />
+      <label for="speed-slider-min">Minutes</label>
+      <input
+        type="range"
+        min="-30"
+        max="30"
+        value="0"
+        id="speed-slider-min"
+        aria-label="Speed of minutes"
+      />
+    </div>
     <form name="clock">
       <div id="middle"></div>
       <div id="hands">
@@ -134,102 +181,55 @@
         <div id="target-min"></div>
       </fieldset>
     </form>
-    <div id="options">
+    <form name="timeline" id="timeline">
+      <label for="AM0">S-AM</label>
       <input
-        type="checkbox"
-        id="eye"
-        class="symbol"
-        aria-label="Toggle settings"
-      />
-      <input
-        type="checkbox"
-        id="fullscreen"
-        class="symbol"
-        aria-label="Toggle fullscreen"
-        onclick="document.webkitIsFullScreen ? document.exitFullscreen() : document.body.requestFullscreen()"
-      />
-      <input
-        type="checkbox"
-        id="h-moving"
-        class="checkmark symbol"
-        aria-label="Toggle rotation of hours"
+        type="radio"
+        name="edit"
+        value="AM0"
+        aria-label="Edit S-AM"
         checked
       />
-      <label for="speed-slider-h">Hours</label>
-      <input
-        type="range"
-        min="-30"
-        max="30"
-        value="0"
-        id="speed-slider-h"
-        aria-label="Speed of hours"
-      />
-      <input
-        type="checkbox"
-        id="min-moving"
-        class="checkmark symbol"
-        aria-label="Toggle rotation of minutes"
-        checked
-      />
-      <label for="speed-slider-min">Minutes</label>
-      <input
-        type="range"
-        min="-30"
-        max="30"
-        value="0"
-        id="speed-slider-min"
-        aria-label="Speed of minutes"
-      />
-      <form name="timeline" id="timeline">
-        <label for="AM0">S-AM</label>
-        <input
-          type="radio"
-          name="edit"
-          value="AM0"
-          aria-label="Edit S-AM"
-          checked
-        />
-        <input type="checkbox" id="AM0" class="toggle" />
-        <label for="PM0">S-PM</label>
-        <input type="radio" name="edit" value="PM0" aria-label="Edit S-PM" />
-        <input type="checkbox" id="PM0" class="toggle" aria-label="S-PM" />
-        <label for="AM1">M-AM</label>
-        <input type="radio" name="edit" value="AM1" aria-label="Edit M-AM" />
-        <input type="checkbox" id="AM1" class="toggle" />
-        <label for="PM1">M-PM</label>
-        <input type="radio" name="edit" value="PM1" aria-label="Edit M-PM" />
-        <input type="checkbox" id="PM1" class="toggle" />
-        <label for="AM2">T-AM</label>
-        <input type="radio" name="edit" value="AM2" aria-label="Edit T-AM" />
-        <input type="checkbox" id="AM2" class="toggle" />
-        <label for="PM2">T-PM</label>
-        <input type="radio" name="edit" value="PM2" aria-label="Edit T-PM" />
-        <input type="checkbox" id="PM2" class="toggle" />
-        <label for="AM3">W-AM</label>
-        <input type="radio" name="edit" value="AM3" aria-label="Edit W-AM" />
-        <input type="checkbox" id="AM3" class="toggle" />
-        <label for="PM3">W-PM</label>
-        <input type="radio" name="edit" value="PM3" aria-label="Edit W-PM" />
-        <input type="checkbox" id="PM3" class="toggle" />
-        <label for="AM4">TH-AM</label>
-        <input type="radio" name="edit" value="AM4" aria-label="Edit TH-AM" />
-        <input type="checkbox" id="AM4" class="toggle" />
-        <label for="PM4">TH-PM</label>
-        <input type="radio" name="edit" value="PM4" aria-label="Edit TH-PM" />
-        <input type="checkbox" id="PM4" class="toggle" />
-        <label for="AM5">F-AM</label>
-        <input type="radio" name="edit" value="AM5" aria-label="Edit F-AM" />
-        <input type="checkbox" id="AM5" class="toggle" />
-        <label for="PM5">F-PM</label>
-        <input type="radio" name="edit" value="PM5" aria-label="Edit F-PM" />
-        <input type="checkbox" id="PM5" class="toggle" />
-        <label for="AM6">S-AM</label>
-        <input type="radio" name="edit" value="AM6" aria-label="Edit S-AM" />
-        <input type="checkbox" id="AM6" class="toggle" />
-        <label for="PM6">S-PM</label>
-        <input type="radio" name="edit" value="PM6" aria-label="Edit S-PM" />
-        <input type="checkbox" id="PM6" class="toggle" />
-      </form>
-    </div>
+      <input type="checkbox" id="AM0" class="toggle" />
+      <label for="PM0">S-PM</label>
+      <input type="radio" name="edit" value="PM0" aria-label="Edit S-PM" />
+      <input type="checkbox" id="PM0" class="toggle" aria-label="S-PM" />
+      <label for="AM1">M-AM</label>
+      <input type="radio" name="edit" value="AM1" aria-label="Edit M-AM" />
+      <input type="checkbox" id="AM1" class="toggle" />
+      <label for="PM1">M-PM</label>
+      <input type="radio" name="edit" value="PM1" aria-label="Edit M-PM" />
+      <input type="checkbox" id="PM1" class="toggle" />
+      <label for="AM2">T-AM</label>
+      <input type="radio" name="edit" value="AM2" aria-label="Edit T-AM" />
+      <input type="checkbox" id="AM2" class="toggle" />
+      <label for="PM2">T-PM</label>
+      <input type="radio" name="edit" value="PM2" aria-label="Edit T-PM" />
+      <input type="checkbox" id="PM2" class="toggle" />
+      <label for="AM3">W-AM</label>
+      <input type="radio" name="edit" value="AM3" aria-label="Edit W-AM" />
+      <input type="checkbox" id="AM3" class="toggle" />
+      <label for="PM3">W-PM</label>
+      <input type="radio" name="edit" value="PM3" aria-label="Edit W-PM" />
+      <input type="checkbox" id="PM3" class="toggle" />
+      <label for="AM4">TH-AM</label>
+      <input type="radio" name="edit" value="AM4" aria-label="Edit TH-AM" />
+      <input type="checkbox" id="AM4" class="toggle" />
+      <label for="PM4">TH-PM</label>
+      <input type="radio" name="edit" value="PM4" aria-label="Edit TH-PM" />
+      <input type="checkbox" id="PM4" class="toggle" />
+      <label for="AM5">F-AM</label>
+      <input type="radio" name="edit" value="AM5" aria-label="Edit F-AM" />
+      <input type="checkbox" id="AM5" class="toggle" />
+      <label for="PM5">F-PM</label>
+      <input type="radio" name="edit" value="PM5" aria-label="Edit F-PM" />
+      <input type="checkbox" id="PM5" class="toggle" />
+      <label for="AM6">S-AM</label>
+      <input type="radio" name="edit" value="AM6" aria-label="Edit S-AM" />
+      <input type="checkbox" id="AM6" class="toggle" />
+      <label for="PM6">S-PM</label>
+      <input type="radio" name="edit" value="PM6" aria-label="Edit S-PM" />
+      <input type="checkbox" id="PM6" class="toggle" />
+    </form>
   </body>
 </html>

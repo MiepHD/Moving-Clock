@@ -3,20 +3,24 @@
   column-gap: 0.5ch;
   row-gap: 2ch;
   grid-template-columns: repeat(3, max-content);
+  height: max-content;
 }
 
 #options label,
-body > span {
+body > span,
+#timeline label {
   color: red;
 }
 
-#options input {
+#options input,
+#timeline input {
   pointer-events: all;
   position: relative;
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
 
-#options input:before {
+#options input:before,
+#timeline input:before {
   content: '';
   position: absolute;
 }
@@ -24,6 +28,8 @@ body > span {
 .checkmark,
 #options input[type='checkbox']:focus,
 #options input[type='radio']:focus,
+#timeline input[type='checkbox']:focus,
+#timeline input[type='radio']:focus,
 fieldset:has(input:focus) label {
   outline: 2px solid red;
   border-radius: 1ch;
