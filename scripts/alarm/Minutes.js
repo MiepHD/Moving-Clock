@@ -5,7 +5,9 @@ class Minutes extends Hand {
     super(face, element, alarm);
     this.anglebefore = 0;
     face.minutes.elem.addEventListener('input', () => {
-      this.setAngle(document.forms['clock']['minute'].value);
+      const angle = document.forms['clock']['minute'].value;
+      this.setAngle(angle);
+      this.updateOtherHand(angle);
       this.alarm.saveAlarm();
     });
   }
