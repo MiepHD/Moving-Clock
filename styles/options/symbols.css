@@ -3,7 +3,7 @@
 .symbol,
 .symbol:before {
   width: calc(4ch + 4px);
-  height: calc(4ch + 4px);
+  height: calc(4ch + 4px) !important;
   background-size: calc(4ch + 4px) calc(4ch + 4px);
 }
 
@@ -45,4 +45,22 @@
 
 #fullscreen:not(:checked):before {
   background-image: url('../../assets/icons/fullscreen/enter.svg');
+}
+
+/* Edit */
+#edit {
+  visibility: visible;
+  grid-column: 3 / span 1;
+  background-color: transparent !important;
+}
+#edit:not(:checked):before {
+  background-image: url('../../assets/icons/edit.svg');
+}
+#edit:checked:before {
+  background-image: url('../../assets/icons/check.svg');
+}
+
+#timeline:has(#edit:not(:checked)) > .toggle,
+#timeline:has(#edit:not(:checked)) > input[name='edit'] {
+  width: 0;
 }

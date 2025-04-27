@@ -8,7 +8,6 @@ class Alarm {
   alarms = {};
 
   previoushangle;
-  previousminangle;
 
   constructor(hands, face) {
     this.minutes = new Minutes(
@@ -29,7 +28,7 @@ class Alarm {
     this.fillAlarms();
 
     //Show/hide alarm settings
-    document.getElementById('eye').addEventListener('input', (e) => {
+    document.getElementById('edit').addEventListener('input', (e) => {
       if (e.target.checked) {
         this.setting = true;
         this.loadAlarm(document.forms['timeline']['edit'].value);
@@ -37,6 +36,12 @@ class Alarm {
         this.setting = false;
         this.loadAlarm(this.getIdByDate(new Date()));
       }
+    });
+    document.forms['timeline'].addEventListener('transitionend', (e) => {
+      if (!this.setting) e.target.style.visibility = 'hidden';
+    });
+    document.forms['timeline'].addEventListener('transitionstart', (e) => {
+      if (this.setting) e.target.style.visibility = 'visible';
     });
 
     //Select alarm
@@ -53,7 +58,6 @@ class Alarm {
     document.querySelectorAll('#timeline .toggle').forEach((alarm) => {
       this.alarms[alarm.id] = {
         toggle: alarm,
-        minutes: 0,
         hours: 0,
       };
     });
@@ -66,20 +70,19 @@ class Alarm {
     );
     if (!(this.setting || this.minutes.getState() || this.hours.getState())) {
       //Updates alarm to alarm for current time
-      this.minutes.setAngle(this.alarms[time].minutes);
-      this.hours.setAngle(this.alarms[time].hours);
+      this.loadAlarm(time);
     }
   }
 
   saveAlarm() {
-    this.alarms[this.activeAlarm].minutes = this.minutes.getAngle();
     this.alarms[this.activeAlarm].hours = this.hours.getAngle();
   }
 
   loadAlarm(id) {
     this.saveAlarm();
-    this.minutes.setAngle(this.alarms[id].minutes);
-    this.hours.setAngle(this.alarms[id].hours);
+    const angle = this.alarms[id].hours;
+    this.hours.setAngle(angle);
+    this.hours.updateOtherHand(angle);
 
     this.activeAlarm = id;
   }
@@ -87,20 +90,13 @@ class Alarm {
   alarm(time) {
     time = this.getIdByDate(time);
     this.updateAlarm(time);
-    const currentminangle = this.hands.getMinutes(),
-      currenthangle = this.hands.getHours();
+    const currenthangle = this.hands.getHours();
     if (this.alarms[time]['toggle'].checked) {
       //Collect angles
-      const alarmminangle = this.minutes.getAngle(),
-        alarmhangle = this.hours.getAngle();
+      const alarmhangle = this.hours.getAngle();
 
       //Check if alarm should be activated
-      if (
-        this.previoushangle < alarmhangle + 15 &&
-        currenthangle > alarmhangle - 15 &&
-        this.previousminangle < alarmminangle &&
-        currentminangle >= alarmminangle
-      ) {
+      if (this.previoushangle < alarmhangle && currenthangle >= alarmhangle) {
         this.audio.play();
         document.addEventListener(
           'touchstart',
@@ -119,7 +115,6 @@ class Alarm {
       }
     }
     this.previoushangle = currenthangle;
-    this.previousminangle = currentminangle;
   }
 
   getIdByDate(time) {

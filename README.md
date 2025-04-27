@@ -6,6 +6,6 @@ https://froxot.com/clock
 # Features
 
 - Has a 24 hour format
-- You can set one alarm time (at AM, PM or both)
-- Adjust rotation speed of minutes and hour face
+- You can set two alarms for every day of the week
+- Adjust rotation speed of minute and hour face
 - Scaleable

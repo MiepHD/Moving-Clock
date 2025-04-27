@@ -5,7 +5,12 @@
   height: max-content;
   margin-left: auto;
 }
+#timeline > label {
+  grid-column: 1 / span 1;
+  margin: auto;
+}
 #timeline > input {
+  transition: width 0.5s ease-in-out;
   margin: 0;
   background-color: darkred;
   height: 4ch;
@@ -19,8 +24,8 @@
   cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer;
 }
 #timeline > .toggle:checked:before {
+  visibility: visible;
   top: calc((100% - 3px) * var(--time) / 360);
-  left: 2ch;
   width: 4ch;
   height: 3px;
   background: red;
@@ -30,13 +35,13 @@
   background: red;
   cursor: url('../../assets/icons/cursor/default.svg'), default;
 }
-#timeline input:first-of-type {
+#timeline input:nth-of-type(2) {
   border-top-left-radius: 1ch;
 }
-#timeline input:nth-of-type(2) {
+#timeline input:nth-of-type(3) {
   border-top-right-radius: 1ch;
 }
-#timeline input:nth-of-type(27) {
+#timeline input:nth-of-type(28) {
   border-bottom-left-radius: 1ch;
 }
 #timeline input:last-of-type {
