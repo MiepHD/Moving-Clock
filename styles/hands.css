@@ -23,6 +23,7 @@
   rotate: unset;
   top: calc(50% - var(--size) * 2);
   transform: rotate(calc(var(--offset) + var(--rot)));
+  transition: transform 0.5s ease-in-out;
   cursor: url('../assets/icons/cursor/rotate.svg') 16 16, grab;
 }
 #minutes,
