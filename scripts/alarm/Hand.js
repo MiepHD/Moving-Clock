@@ -99,6 +99,12 @@ class Hand {
     this.elem.style.setProperty('--rot', angle + 'deg');
     this.angle = angle;
   }
+  setVisibility(visibility) {
+    this.elem.style.setProperty(
+      'visibility',
+      visibility ? 'visible' : 'hidden'
+    );
+  }
   addOtherHand(hand) {
     this.otherhand = hand;
   }

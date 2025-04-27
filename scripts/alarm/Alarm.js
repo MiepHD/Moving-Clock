@@ -65,11 +65,14 @@ class Alarm {
     });
   }
 
-  updateAlarm(time) {
-    this.alarms[this.activeAlarm].toggle.style.setProperty(
+  updateTimeline(time) {
+    this.alarms[time].toggle.style.setProperty(
       '--time',
-      this.alarms[this.activeAlarm].hours
+      this.alarms[time].hours
     );
+  }
+  updateAlarm(time) {
+    this.updateTimeline(this.activeAlarm);
     if (!(this.setting || this.minutes.getState() || this.hours.getState())) {
       //Updates alarm to alarm for current time
       this.loadAlarm(time);
@@ -90,10 +93,13 @@ class Alarm {
   }
 
   alarm(time) {
+    const visibility = this.alarms[this.activeAlarm]['toggle'].checked;
+    this.minutes.setVisibility(visibility);
+    this.hours.setVisibility(visibility);
     time = this.getIdByDate(time);
-    this.updateAlarm(time);
     const currenthangle = this.hands.getHours();
-    if (this.alarms[time]['toggle'].checked) {
+    if (visibility) {
+      this.updateAlarm(time);
       //Collect angles
       const alarmhangle = this.hours.getAngle();
 
@@ -122,7 +128,6 @@ class Alarm {
   getIdByDate(time) {
     return `${time.getHours() >= 12 ? 'PM' : 'AM'}${time.getDay()}`;
   }
-
   getAlarms() {
     const data = {};
     for (const id in this.alarms) {
@@ -138,6 +143,7 @@ class Alarm {
     Object.keys(alarms).forEach((id) => {
       const alarm = alarms[id];
       this.alarms[id].hours = alarm.time;
+      this.updateTimeline(id);
       this.alarms[id].toggle.checked = alarm.active;
     });
     this.loadAlarm(this.activeAlarm, true);
