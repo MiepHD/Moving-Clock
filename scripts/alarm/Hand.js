@@ -5,6 +5,8 @@ class Hand {
   elem;
   //Clock's face
   face;
+  myface;
+  form;
   angle;
   //Middle of screen
   middle;
@@ -12,10 +14,12 @@ class Hand {
   otherhand;
   state;
 
-  constructor(face, element, alarm) {
+  constructor(face, myface, form, element, alarm) {
     this.alarm = alarm;
     this.elem = element;
     this.face = face;
+    this.myface = myface;
+    this.form = form;
     this.angle = 0;
     this.middleelem = document.getElementById('middle');
     this.updateMiddle();
@@ -27,6 +31,13 @@ class Hand {
 
     this.elem.addEventListener('mousedown', this.start);
     this.elem.addEventListener('touchstart', this.start);
+
+    this.myface.elem.addEventListener('input', () => {
+      const angle = this.form.value;
+      this.setAngle(angle);
+      this.updateOtherHand(angle);
+      this.alarm.saveAlarm();
+    });
   }
 
   //On touch start
@@ -80,6 +91,11 @@ class Hand {
   }
 
   setAngle(angle) {
+    document.dispatchEvent(new Event('input'));
+    const formangle = Math.floor(angle);
+    this.form.value =
+      formangle % 30 == 0 ? formangle : formangle - (formangle % 30) + 1;
+
     this.elem.style.setProperty('--rot', angle + 'deg');
     this.angle = angle;
   }

@@ -2,14 +2,14 @@ class Minutes extends Hand {
   //Last angle in degree from 0 to 360
   anglebefore;
   constructor(face, element, alarm) {
-    super(face, element, alarm);
+    super(
+      face,
+      face.minutes,
+      document.forms['clock']['minute'],
+      element,
+      alarm
+    );
     this.anglebefore = 0;
-    face.minutes.elem.addEventListener('input', () => {
-      const angle = document.forms['clock']['minute'].value;
-      this.setAngle(angle);
-      this.updateOtherHand(angle);
-      this.alarm.saveAlarm();
-    });
   }
 
   updateOtherHand(angleMinutes) {
