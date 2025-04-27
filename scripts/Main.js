@@ -20,6 +20,7 @@ class Main {
       this.error = document.querySelector('body > span');
       this.lastframerate = 0;
       new Cursor();
+      new Storage(this.alarm, this.face);
 
       this.syncTime();
     });

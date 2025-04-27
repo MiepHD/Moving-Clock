@@ -1,6 +1,7 @@
 class Alarm {
   minutes;
   hours;
+  setting;
 
   audio;
   hands;
@@ -18,6 +19,7 @@ class Alarm {
     this.hours = new Hours(face, document.getElementById('target-h'), this);
     this.minutes.addOtherHand(this.hours);
     this.hours.addOtherHand(this.minutes);
+    this.setting = false;
 
     this.audio = new Audio('assets/alarm.mp3');
     this.audio.loop = true;
@@ -78,8 +80,8 @@ class Alarm {
     this.alarms[this.activeAlarm].hours = this.hours.getAngle();
   }
 
-  loadAlarm(id) {
-    this.saveAlarm();
+  loadAlarm(id, nosave) {
+    if (!nosave) this.saveAlarm();
     const angle = this.alarms[id].hours;
     this.hours.setAngle(angle);
     this.hours.updateOtherHand(angle);
@@ -119,5 +121,25 @@ class Alarm {
 
   getIdByDate(time) {
     return `${time.getHours() >= 12 ? 'PM' : 'AM'}${time.getDay()}`;
+  }
+
+  getAlarms() {
+    const data = {};
+    for (const id in this.alarms) {
+      const alarm = this.alarms[id];
+      data[id] = {
+        time: alarm.hours,
+        active: alarm.toggle.checked,
+      };
+    }
+    return data;
+  }
+  setAlarms(alarms) {
+    Object.keys(alarms).forEach((id) => {
+      const alarm = alarms[id];
+      this.alarms[id].hours = alarm.time;
+      this.alarms[id].toggle.checked = alarm.active;
+    });
+    this.loadAlarm(this.activeAlarm, true);
   }
 }

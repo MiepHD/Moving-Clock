@@ -18,9 +18,9 @@ class Rotator {
     this.elem = document.getElementById('digits-' + this.id);
 
     //Speed slider handler
-    const speedslider = document.getElementById('speed-slider-' + this.id);
-    speedslider.value = this.speed * 1000;
-    speedslider.addEventListener('input', (e) => {
+    this.speedslider = document.getElementById('speed-slider-' + this.id);
+    this.speedslider.value = this.speed * 1000;
+    this.speedslider.addEventListener('input', (e) => {
       this.speed = e.target.value / 1000;
     });
     //Speed checkbox
@@ -38,5 +38,15 @@ class Rotator {
     } else {
       this.elem.style.setProperty('--offset', '270deg');
     }
+  }
+
+  setSpeed(speed) {
+    this.speed = speed;
+    this.speedslider.value = speed * 1000;
+  }
+
+  setRotating(rotating) {
+    this.rotating = rotating;
+    document.getElementById(this.id + '-moving').checked = rotating;
   }
 }
