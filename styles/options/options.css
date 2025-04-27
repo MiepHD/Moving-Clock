@@ -8,7 +8,9 @@
 
 #options label,
 body > span,
-#timeline label {
+#timeline label,
+input[type='range'] {
+  margin: auto;
   color: red;
 }
 

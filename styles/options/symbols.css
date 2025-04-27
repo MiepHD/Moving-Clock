@@ -63,4 +63,5 @@
 #timeline:has(#edit:not(:checked)) > .toggle,
 #timeline:has(#edit:not(:checked)) > input[name='edit'] {
   width: 0;
+  visibility: hidden;
 }
