@@ -37,10 +37,11 @@ class Hands {
       seconds = time.getSeconds();
 
     this.minutes.angle =
-      (minutes * 60 + seconds + time.getMilliseconds() / 1000) / 10;
+      ((minutes * 60 + seconds + time.getMilliseconds() / 1000) / 10) % 360;
     this.setHand(this.minutes);
 
-    this.hours.angle = (time.getHours() * 60 + minutes + seconds / 60) / 2;
+    this.hours.angle =
+      ((time.getHours() * 60 + minutes + seconds / 60) / 2) % 360;
     this.setHand(this.hours);
   }
 
