@@ -43,8 +43,6 @@ class Hand {
   //On touch start
   start() {
     this.state = true;
-    this.elem.style.setProperty('transition', 'none');
-    this.otherhand.elem.style.setProperty('transition', 'none');
     this.face.toggleRotation();
     const options = { once: true };
     document.addEventListener('mouseup', this.save, options);
@@ -56,8 +54,6 @@ class Hand {
   //On touch end
   save() {
     this.state = false;
-    this.elem.style.removeProperty('transition');
-    this.otherhand.elem.style.removeProperty('transition');
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
