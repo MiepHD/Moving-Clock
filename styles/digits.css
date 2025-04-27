@@ -28,7 +28,7 @@ fieldset {
 
   > div {
     position: absolute;
-    top: 50%;
+    top: calc(50% - var(--size));
     left: var(--circle-distance);
     width: calc(100% - var(--circle-distance) * 2);
     height: 0;

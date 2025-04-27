@@ -13,7 +13,7 @@
 }
 #hours,
 #minutes {
-  top: 50%;
+  top: calc(50% - var(--size));
 }
 #target-min,
 #target-h {
@@ -21,17 +21,23 @@
   pointer-events: all;
   background: darkred;
   rotate: unset;
-  top: calc(50% - var(--size));
+  top: calc(50% - var(--size) * 2);
   transform: rotate(calc(var(--offset) + var(--rot)));
   cursor: url('../assets/icons/cursor/rotate.svg') 16 16, grab;
 }
 #minutes,
 #target-min {
-  --size: 0.8ch;
   width: calc(50% - 7ch);
+}
+#minutes,
+#digits-min {
+  --size: 0.8ch;
 }
 #hours,
 #target-h {
-  --size: 1.2ch;
   width: calc(50% - 17.5ch);
+}
+#hours,
+#digits-h {
+  --size: 1.2ch;
 }

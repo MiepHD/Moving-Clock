@@ -10,11 +10,11 @@ html {
   width: 100%;
   overflow: hidden;
   background-color: black;
-  user-select: none;
   pointer-events: none;
   font-family: 'sevensegment';
 }
 body {
+  user-select: none;
   display: grid;
   grid-template-columns: 1fr min(100%, calc(100dvh - 64px)) 1fr;
   margin: 0;

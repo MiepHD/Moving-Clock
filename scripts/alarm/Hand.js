@@ -8,6 +8,7 @@ class Hand {
   angle;
   //Middle of screen
   middle;
+  middleelem;
   otherhand;
   state;
 
@@ -16,7 +17,9 @@ class Hand {
     this.elem = element;
     this.face = face;
     this.angle = 0;
-    this.middle = document.getElementById('middle').getBoundingClientRect();
+    this.middleelem = document.getElementById('middle');
+    this.updateMiddle();
+    window.addEventListener('resize', this.updateMiddle.bind(this));
 
     this.update = this.update.bind(this);
     this.start = this.start.bind(this);
@@ -45,6 +48,11 @@ class Hand {
     this.face.toggleRotation();
     this.alarm.saveAlarm();
   }
+
+  updateMiddle() {
+    this.middle = this.middleelem.getBoundingClientRect();
+  }
+
   //On touch movement
   update(e) {
     //Only process first touch
