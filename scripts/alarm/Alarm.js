@@ -98,8 +98,8 @@ class Alarm {
     this.hours.setVisibility(visibility);
     time = this.getIdByDate(time);
     const currenthangle = this.hands.getHours();
+    this.updateAlarm(time);
     if (visibility) {
-      this.updateAlarm(time);
       //Collect angles
       const alarmhangle = this.hours.getAngle();
 
