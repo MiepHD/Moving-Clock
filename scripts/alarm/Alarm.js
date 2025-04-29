@@ -32,8 +32,8 @@ class Alarm {
     //Show/hide alarm settings
     document.getElementById('edit').addEventListener('input', (e) => {
       if (e.target.checked) {
-        this.setting = true;
         this.loadAlarm(document.forms['timeline']['edit'].value);
+        this.setting = true;
       } else {
         this.setting = false;
         this.loadAlarm(this.getIdByDate(new Date()));
@@ -73,18 +73,18 @@ class Alarm {
   }
   updateAlarm(time) {
     this.updateTimeline(this.activeAlarm);
-    if (!(this.setting || this.minutes.getState() || this.hours.getState())) {
+    if (!this.setting) {
       //Updates alarm to alarm for current time
-      this.loadAlarm(time);
+      if (this.activeAlarm != time) this.loadAlarm(time);
     }
   }
 
   saveAlarm() {
-    this.alarms[this.activeAlarm].hours = this.hours.getAngle();
+    if (this.setting) this.alarms[this.activeAlarm].hours = this.hours.getAngle();
   }
 
-  loadAlarm(id, nosave) {
-    if (!nosave) this.saveAlarm();
+  loadAlarm(id) {
+    this.saveAlarm();
     const angle = this.alarms[id].hours;
     this.hours.setAngle(angle);
     this.hours.updateOtherHand(angle);
@@ -146,6 +146,6 @@ class Alarm {
       this.updateTimeline(id);
       this.alarms[id].toggle.checked = alarm.active;
     });
-    this.loadAlarm(this.activeAlarm, true);
+    this.loadAlarm(this.activeAlarm);
   }
 }
