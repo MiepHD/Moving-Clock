@@ -1,12 +1,11 @@
 class Alarm {
   minutes;
   hours;
-  setting;
 
   audio;
   hands;
   activeAlarm;
-  alarms = {};
+  timeline;
 
   previoushangle;
 
@@ -19,108 +18,63 @@ class Alarm {
     this.hours = new Hours(face, document.getElementById('target-h'), this);
     this.minutes.addOtherHand(this.hours);
     this.hours.addOtherHand(this.minutes);
-    this.setting = false;
 
-    this.audio = new Audio('assets/alarm.mp3');
-    this.audio.loop = true;
+    this.audio = new AudioHandler();
 
     this.hands = hands;
-    this.activeAlarm = this.getIdByDate(new Date());
+    this.timeline = new Timeline();
 
-    this.fillAlarms();
-
-    //Show/hide alarm settings
+    //Show/hide timeline
     document.getElementById('edit').addEventListener('input', (e) => {
       if (e.target.checked) {
-        this.loadAlarm(document.forms['timeline']['edit'].value);
-        this.setting = true;
+        this.switchTo(document.forms['timeline']['edit'].value);
+        this.timeline.setting = true;
       } else {
-        this.setting = false;
-        this.loadAlarm(this.getIdByDate(new Date()));
+        this.timeline.setting = false;
+        this.switchTo(this.getIdByDate(new Date()));
       }
     });
-    document.forms['timeline'].addEventListener('transitionend', (e) => {
-      if (!this.setting) e.target.style.visibility = 'hidden';
-    });
-    document.forms['timeline'].addEventListener('transitionstart', (e) => {
-      if (this.setting) e.target.style.visibility = 'visible';
-    });
-
     //Select alarm
     document
       .querySelectorAll('#timeline input[name="edit"]')
       .forEach((elem) => {
         elem.addEventListener('input', (e) => {
-          this.loadAlarm(e.target.value);
+          this.switchTo(e.target.value);
         });
       });
   }
 
-  fillAlarms() {
-    document.querySelectorAll('#timeline .toggle').forEach((alarm) => {
-      this.alarms[alarm.id] = {
-        toggle: alarm,
-        hours: 0,
-      };
-    });
-  }
+  switchTo(id) {
+    if (id) {
+      this.save();
+      const angle = this.timeline.getAlarm(id);
+      this.hours.setAngle(angle);
+      this.hours.updateOtherHand(angle);
 
-  updateTimeline(time) {
-    this.alarms[time].toggle.style.setProperty(
-      '--time',
-      this.alarms[time].hours
-    );
-  }
-  updateAlarm(time) {
-    this.updateTimeline(this.activeAlarm);
-    if (!this.setting) {
-      //Updates alarm to alarm for current time
-      if (this.activeAlarm != time) this.loadAlarm(time);
+      this.activeAlarm = id;
     }
   }
-
-  saveAlarm() {
-    if (this.setting) this.alarms[this.activeAlarm].hours = this.hours.getAngle();
+  save() {
+    this.timeline.setAlarm(this.activeAlarm, this.hours.getAngle());
   }
 
-  loadAlarm(id) {
-    this.saveAlarm();
-    const angle = this.alarms[id].hours;
-    this.hours.setAngle(angle);
-    this.hours.updateOtherHand(angle);
-
-    this.activeAlarm = id;
-  }
-
-  alarm(time) {
-    const visibility = this.alarms[this.activeAlarm]['toggle'].checked;
+  update(time) {
+    const visibility = this.timeline.isEnabled(this.activeAlarm);
     this.minutes.setVisibility(visibility);
     this.hours.setVisibility(visibility);
     time = this.getIdByDate(time);
     const currenthangle = this.hands.getHours();
-    this.updateAlarm(time);
+    this.timeline.update(this.activeAlarm);
+    if (!this.timeline.setting && this.activeAlarm != time) {
+      //Updates alarm to alarm for current time
+      this.switchTo(time);
+    }
     if (visibility) {
-      //Collect angles
       const alarmhangle = this.hours.getAngle();
 
       //Check if alarm should be activated
-      if (this.previoushangle < alarmhangle && currenthangle >= alarmhangle) {
+      if (this.previoushangle < alarmhangle && currenthangle >= alarmhangle)
         this.audio.play();
-        document.addEventListener(
-          'touchstart',
-          () => {
-            this.audio.pause();
-          },
-          { once: true }
-        );
-        document.addEventListener(
-          'click',
-          () => {
-            this.audio.pause();
-          },
-          { once: true }
-        );
-      }
     }
     this.previoushangle = currenthangle;
   }
@@ -128,24 +82,12 @@ class Alarm {
   getIdByDate(time) {
     return `${time.getHours() >= 12 ? 'PM' : 'AM'}${time.getDay()}`;
   }
+
   getAlarms() {
-    const data = {};
-    for (const id in this.alarms) {
-      const alarm = this.alarms[id];
-      data[id] = {
-        time: alarm.hours,
-        active: alarm.toggle.checked,
-      };
-    }
-    return data;
+    return this.timeline.getAlarms();
   }
   setAlarms(alarms) {
-    Object.keys(alarms).forEach((id) => {
-      const alarm = alarms[id];
-      this.alarms[id].hours = alarm.time;
-      this.updateTimeline(id);
-      this.alarms[id].toggle.checked = alarm.active;
-    });
-    this.loadAlarm(this.activeAlarm);
+    this.timeline.setAlarms(alarms);
+    this.switchTo(this.activeAlarm);
   }
 }

@@ -31,7 +31,7 @@ class Main {
 
     this.hands.setTime(start);
     this.face.rotate(start.getHours());
-    this.alarm.alarm(start);
+    this.alarm.update(start);
 
     const end = new Date();
     this.calculateFramerate(end);

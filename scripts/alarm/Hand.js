@@ -36,7 +36,7 @@ class Hand {
       const angle = this.form.value;
       this.setAngle(angle);
       this.updateOtherHand(angle);
-      this.alarm.saveAlarm();
+      this.alarm.save();
     });
   }
 
@@ -57,7 +57,7 @@ class Hand {
     document.removeEventListener('mousemove', this.update);
     document.removeEventListener('touchmove', this.update);
     this.face.toggleRotation();
-    this.alarm.saveAlarm();
+    this.alarm.save();
   }
 
   updateMiddle() {

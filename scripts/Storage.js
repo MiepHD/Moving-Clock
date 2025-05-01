@@ -20,17 +20,22 @@ class Storage {
           rotating: this.face.minutes.rotating,
           speed: this.face.minutes.speed,
         },
+        audio: this.alarm.audio.getCurrentAudio(),
       })
     );
   }
   loadSettings() {
     const settings = JSON.parse(localStorage.getItem('settings'));
     if (settings) {
-      this.face.hours.setRotating(settings.hours.rotating);
-      this.face.hours.setSpeed(settings.hours.speed);
-      this.face.minutes.setRotating(settings.minutes.rotating);
-      this.face.minutes.setSpeed(settings.minutes.speed);
-      this.alarm.setAlarms(settings.alarms);
+      if (settings.alarms) this.alarm.setAlarms(settings.alarms);
+      if (settings.hours.rotating)
+        this.face.hours.setRotating(settings.hours.rotating);
+      if (settings.hours.speed) this.face.hours.setSpeed(settings.hours.speed);
+      if (settings.minutes.rotating)
+        this.face.minutes.setRotating(settings.minutes.rotating);
+      if (settings.minutes.speed)
+        this.face.minutes.setSpeed(settings.minutes.speed);
+      if (settings.audio) this.alarm.audio.setAudioById(settings.audio);
     }
   }
 }

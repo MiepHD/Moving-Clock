@@ -29,7 +29,6 @@ input[type='range'] {
 
 .checkmark,
 #options input[type='checkbox']:focus,
-#options input[type='radio']:focus,
 #timeline input[type='checkbox']:focus,
 #timeline input[type='radio']:focus,
 fieldset:has(input:focus) label {

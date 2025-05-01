@@ -1,7 +1,7 @@
 legend {
   color: rgba(0, 0, 0, 0);
 }
-fieldset label {
+form[name='clock'] > fieldset label {
   pointer-events: all;
   position: absolute;
   color: red;
@@ -17,7 +17,7 @@ fieldset label {
   top: -1ch;
   cursor: url('../assets/icons/cursor/click.svg') 8 8, pointer;
 }
-fieldset {
+form[name='clock'] > fieldset {
   position: absolute;
   border: none;
   width: min(100%, calc(100vh - 20px));
@@ -44,43 +44,43 @@ fieldset {
   --circle-distance: 7ch;
 }
 
-fieldset > input:not(:checked) {
+form[name='clock'] > fieldset > input:not(:checked) {
   visibility: hidden;
 }
 
-fieldset > div:nth-child(2) {
+form[name='clock'] > fieldset > div:nth-child(2) {
   --rot: 0deg;
 }
-fieldset > div:nth-child(4) {
+form[name='clock'] > fieldset > div:nth-child(4) {
   --rot: 30deg;
 }
-fieldset > div:nth-child(6) {
+form[name='clock'] > fieldset > div:nth-child(6) {
   --rot: 60deg;
 }
-fieldset > div:nth-child(8) {
+form[name='clock'] > fieldset > div:nth-child(8) {
   --rot: 90deg;
 }
-fieldset > div:nth-child(10) {
+form[name='clock'] > fieldset > div:nth-child(10) {
   --rot: 120deg;
 }
-fieldset > div:nth-child(12) {
+form[name='clock'] > fieldset > div:nth-child(12) {
   --rot: 150deg;
 }
-fieldset > div:nth-child(14) {
+form[name='clock'] > fieldset > div:nth-child(14) {
   --rot: 180deg;
 }
-fieldset > div:nth-child(16) {
+form[name='clock'] > fieldset > div:nth-child(16) {
   --rot: 210deg;
 }
-fieldset > div:nth-child(18) {
+form[name='clock'] > fieldset > div:nth-child(18) {
   --rot: 240deg;
 }
-fieldset > div:nth-child(20) {
+form[name='clock'] > fieldset > div:nth-child(20) {
   --rot: 270deg;
 }
-fieldset > div:nth-child(22) {
+form[name='clock'] > fieldset > div:nth-child(22) {
   --rot: 300deg;
 }
-fieldset > div:nth-child(24) {
+form[name='clock'] > fieldset > div:nth-child(24) {
   --rot: 330deg;
 }

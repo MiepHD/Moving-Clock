@@ -9,3 +9,4 @@ https://froxot.com/clock
 - You can set two alarms for every day of the week
 - Adjust rotation speed of minute and hour face
 - Scaleable
+- Custom alarm sound

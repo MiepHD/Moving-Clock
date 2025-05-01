@@ -1,0 +1,61 @@
+#options div label {
+  display: block;
+  padding: 0.5ch;
+  text-decoration: dotted underline;
+  width: max-content;
+  margin-left: 0;
+}
+#options > fieldset label,
+#options > fieldset button,
+#options > div > label {
+  pointer-events: all !important;
+  cursor: url('../../assets/icons/cursor/click.svg') 8 8, pointer !important;
+}
+#options > div:has(input:focus) > label {
+  outline: 2px solid red;
+  border-radius: 1ch;
+}
+#options > fieldset:has(input:focus) div:has(input:checked) > label {
+  background-color: darkred;
+}
+#options div:has(input[type='radio']:checked) label {
+  text-decoration: underline;
+}
+#options > fieldset {
+  margin-left: 2ch;
+  border: none;
+  padding: 0;
+}
+#options > div {
+  position: relative;
+  grid-column: 1 / span 1;
+  margin-left: 2ch;
+  top: -2ch;
+  label {
+    position: absolute;
+    top: 0;
+  }
+}
+input[type='file'] {
+  width: 0;
+  height: 0;
+}
+#options > fieldset > div {
+  position: relative;
+  input {
+    position: absolute;
+  }
+  button {
+    all: unset;
+    color: red;
+    position: absolute;
+    display: block;
+    left: -2ch;
+    top: 0.5ch;
+    text-decoration: dotted underline;
+  }
+  button:focus {
+    outline: 2px solid red;
+    border-radius: 1ch;
+  }
+}

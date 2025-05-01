@@ -10,21 +10,25 @@
     <link rel="stylesheet" href="./styles/options/slider.css" />
     <link rel="stylesheet" href="./styles/options/symbols.css" />
     <link rel="stylesheet" href="./styles/options/timeline.css" />
+    <link rel="stylesheet" href="./styles/options/audio.css" />
     <script src="./scripts/alarm/Hand.js"></script>
     <script src="./scripts/alarm/Minutes.js"></script>
     <script src="./scripts/alarm/Hours.js"></script>
     <script src="./scripts/alarm/Alarm.js"></script>
+    <script src="./scripts/alarm/Timeline.js"></script>
+    <script src="./scripts/alarm/AudioHandler.js"></script>
     <script src="./scripts/face/Rotator.js"></script>
     <script src="./scripts/face/Face.js"></script>
     <script src="./scripts/Hands.js"></script>
     <script src="./scripts/Cursor.js"></script>
     <script src="./scripts/Storage.js"></script>
+    <script src="./scripts/Database.js"></script>
     <script src="./scripts/Main.js"></script>
     <title>Moving Clock</title>
   </head>
   <body>
     <span></span>
-    <div id="options">
+    <form name="options" id="options">
       <input
         type="checkbox"
         id="eye"
@@ -70,7 +74,7 @@
         id="speed-slider-min"
         aria-label="Speed of minutes"
       />
-    </div>
+    </form>
     <form name="clock">
       <div id="middle"></div>
       <div id="hands">
