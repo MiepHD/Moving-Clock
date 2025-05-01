@@ -34,7 +34,8 @@ class Face {
    */
   updateHours(hour) {
     if (hour != this.lasthour) {
-      const hourToUpdate = (hour + 7) % 24;
+      let hourToUpdate = (hour + 6) % 24;
+      if (hourToUpdate < 0) hourToUpdate += 24;
       document.querySelector(`.d${hourToUpdate}`).textContent = hourToUpdate;
     }
     this.lasthour = hour;
