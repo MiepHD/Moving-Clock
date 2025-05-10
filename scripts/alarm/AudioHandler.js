@@ -63,7 +63,7 @@ class AudioHandler {
         fieldset.appendChild(div);
       }
       this.form.insertBefore(fieldset, this.form.lastChild);
-      this.form['audio'].value = this.initId;
+      if (index.length > 1) this.form['audio'].value = this.initId;
     });
   }
   async getAudio() {
