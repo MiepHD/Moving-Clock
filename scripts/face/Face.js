@@ -3,19 +3,13 @@ class Face {
   minutes;
   //FaceRotator of hours
   hours;
-  //Date of last tick
-  lasttime;
   //If it should rotate or pause rotating
   rotating;
-  //If speed should adopt to framerate (If framerate's lower than 50FPS the clock will get slower to move smoothly)
-  dynamicspeed;
 
   constructor(hours) {
     this.minutes = new Rotator('min');
     this.hours = new Rotator('h');
-    this.lasttime = new Date();
     this.rotating = true;
-    this.dynamicspeed = true;
 
     for (let i = 0; i <= 12; i++) {
       this.updateHours(hours - i);
